@@ -1,0 +1,33 @@
+{
+  "name": "wcshackathon3culturathon",
+  "version": "1.0.0",
+  "description": "hackathonCulturathon ====================",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@symfony/webpack-encore": "^0.20.1",
+    "bootstrap": "^4.1.1",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.9.0",
+    "popper.js": "^1.14.3",
+    "sass-loader": "^7.0.3"
+  },
+  "devDependencies": {
+    "webpack-notifier": "^1.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StevenGrl/WCSHackathon3Culturathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StevenGrl/WCSHackathon3Culturathon/issues"
+  },
+  "homepage": "https://github.com/StevenGrl/WCSHackathon3Culturathon#readme"
+}
