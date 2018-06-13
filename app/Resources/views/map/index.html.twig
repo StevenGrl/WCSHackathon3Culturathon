@@ -10,7 +10,7 @@
             <div class="col-xs-10">
                 <div class="map">
                     {% if map is empty %}
-                        <div class="alert alert-warning">Woups ! The map is empty :/</div>
+                        <div class="alert alert-warning">Woups ! La carte est vide :/</div>
                     {% endif %}
                     {% for y in 0..6 %}
                         <div class="row">
@@ -51,10 +51,10 @@
                     </p>
                     <p class="text-center">
                         <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'W'}) }}">
-                            W <i class="fas fa-chevron-right"></i>
+                            <i class="fas fa-chevron-left"></i> W
                         </a>
                         <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'E'}) }}">
-                            <i class="fas fa-chevron-left"></i> E
+                            E <i class="fas fa-chevron-right"></i>
                         </a>
                     </p>
                     <p class="text-center">
