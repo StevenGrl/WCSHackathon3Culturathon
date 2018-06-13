@@ -31,6 +31,7 @@ class UserFixtures extends Fixture
         $userSuperAdmin->setFirstName('Ad');
         $userSuperAdmin->setLastName('MIN');
         $userSuperAdmin->setRoles(['ROLE_SUPER_ADMIN']);
+        $userSuperAdmin->setEnabled(true);
 
         $password = $this->encoder->encodePassword($userSuperAdmin, '1234');
         $userSuperAdmin->setPassword($password);

@@ -2,7 +2,18 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/lux/bootswatch";
 @import "navbar";
-
 body {
   padding-bottom: 50px;
+}
+//NAVBAR
+
+.navbar {
+  max-height: 50px;
+}
+
+.navbar-brand-center
+{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
