@@ -43,7 +43,12 @@
             </form>
         </div>
     </nav>
-    {% block body %}{% endblock %}
+    {% block free %}
+        <div class="container">
+            {% block body %}
+            {% endblock %}
+        </div>
+    {% endblock %}
     <script src="{{ asset('build/app.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
