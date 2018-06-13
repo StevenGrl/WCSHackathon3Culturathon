@@ -22,7 +22,7 @@
                                    value="{{ last_username }}"
                                    required="required"/>
                         </div>
-                        <div class="formgroup">
+                        <div class="form-group">
                             <label for="password">{{ 'security.login.password'|trans }}</label>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
@@ -32,15 +32,14 @@
                                        required="required"/>
                             </div>
                             <div class="row justify-content-center">
-                                <div class="checkbox mt-3 mr-3">
-                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-                                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-                                </div>
-                                <div class="row">
+                                   <div class="row">
                                     <div class="col-12 mt-2">
+                                        <a href="{{ path('fos_user_registration_register') }}" class="btn btn-warning">Inscription</a>
+
                                         <input type="submit" class="btn btn-primary" id="_submit"
                                                name="_submit"
                                                value="{{ 'security.login.submit'|trans }}"/>
+
                                     </div>
                                 </div>
                             </div>
