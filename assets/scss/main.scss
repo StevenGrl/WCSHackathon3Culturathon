@@ -2,15 +2,23 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/lux/bootswatch";
 @import "navbar";
+
 body {
   padding-bottom: 5em;
 }
+
 //NAVBAR
 
 .lg-dropup {
   font-size: 1.09375rem;
 }
 
+.navbar-brand {
+  flex-grow: 2;
+}
+
+.dropup {
+  flex-grow: 0;
   .dropdown-menu {
     background-color: #e83e8c;
     font-size: 1rem;
@@ -21,14 +29,4 @@ body {
       background-color: #343a40;
     }
   }
-
-  .navbar {
-    max-height: 50px;
-  }
-
-  .navbar-brand-center
-  {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-  }
+}
