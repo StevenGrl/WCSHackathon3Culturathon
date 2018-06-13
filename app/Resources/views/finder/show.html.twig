@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Finder</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ finder.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ finder.name }}</td>
+            </tr>
+            <tr>
+                <th>Coordx</th>
+                <td>{{ finder.coordX }}</td>
+            </tr>
+            <tr>
+                <th>Coordy</th>
+                <td>{{ finder.coordY }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('finder_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('finder_edit', { 'id': finder.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

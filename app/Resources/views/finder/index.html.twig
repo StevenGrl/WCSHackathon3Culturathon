@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Finders list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Coordx</th>
+                <th>Coordy</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for finder in finders %}
+            <tr>
+                <td><a href="{{ path('finder_show', { 'id': finder.id }) }}">{{ finder.id }}</a></td>
+                <td>{{ finder.name }}</td>
+                <td>{{ finder.coordX }}</td>
+                <td>{{ finder.coordY }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('finder_show', { 'id': finder.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('finder_edit', { 'id': finder.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('finder_new') }}">Create a new finder</a>
+        </li>
+    </ul>
+{% endblock %}

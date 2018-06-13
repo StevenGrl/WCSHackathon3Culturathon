@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tile</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ tile.id }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ tile.type }}</td>
+            </tr>
+            <tr>
+                <th>Coordx</th>
+                <td>{{ tile.coordX }}</td>
+            </tr>
+            <tr>
+                <th>Coordy</th>
+                <td>{{ tile.coordY }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ tile.name }}</td>
+            </tr>
+            <tr>
+                <th>Hastreasure</th>
+                <td>{% if tile.hasTreasure %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tile_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tile_edit', { 'id': tile.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

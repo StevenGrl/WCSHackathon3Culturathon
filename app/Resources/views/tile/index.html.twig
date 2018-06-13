@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tiles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Coordx</th>
+                <th>Coordy</th>
+                <th>Name</th>
+                <th>Hastreasure</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for tile in tiles %}
+            <tr>
+                <td><a href="{{ path('tile_show', { 'id': tile.id }) }}">{{ tile.id }}</a></td>
+                <td>{{ tile.type }}</td>
+                <td>{{ tile.coordX }}</td>
+                <td>{{ tile.coordY }}</td>
+                <td>{{ tile.name }}</td>
+                <td>{% if tile.hasTreasure %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('tile_show', { 'id': tile.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('tile_edit', { 'id': tile.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tile_new') }}">Create a new tile</a>
+        </li>
+    </ul>
+{% endblock %}
