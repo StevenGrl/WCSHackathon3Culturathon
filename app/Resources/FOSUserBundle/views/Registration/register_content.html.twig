@@ -1,40 +1,52 @@
 {% trans_default_domain 'FOSUserBundle' %}
 <form action="{{ path('fos_user_registration_register') }}" method="POST" class="form-horizontal" role="form">
-    {{form_errors(form)}}
+    {{ form_errors(form) }}
     <div class="container pt-0 pt-md-3 pt-lg-5">
 
-    <fieldset>
-        <legend>Enregistrement d'un utilisateur</legend>
-        <div class="form-group">
-            <label for="username" class="col-md-2 control_label">Login :</label>
-                <input class="form-control" type="text" id="username" name="fos_user_registration_form[username]" required="required" />
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-md-2 control_label">Email :</label>
-                <input class="form-control" type="email" id="email" name="fos_user_registration_form[email]" required="required" />
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-md-2 control_label">Nom :</label>
-                <input class="form-control" type="text" id="email" name="fos_user_registration_form[last_name]" required="required" />
-        </div>
-        <div class="form-group">
-            <label for="email" class="col-md-2 control_label">Prénom :</label>
-                <input class="form-control" type="text" id="email" name="fos_user_registration_form[first_name]" required="required" />
-        </div>
-        <div class="form-group">
-            <label for="plainPassword_first" class="col-md-2 control_label">Mot de passe :</label>
-                <input class="form-control" type="password" id="plainPassword_first" name="fos_user_registration_form[plainPassword][first]" value="Hedwige_45Hp" required="required" />
-        </div>
-        <div class="form-group">
-            <label for="plainPassword_second" class="col-md-2 control_label">Confirmation du mot de passe :</label>
-                <input class="form-control" type="password" id="plainPassword_second" name="fos_user_registration_form[plainPassword][second]" value="Hedwige_45Hp" required="required" />
-        </div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <button type="submit" class="btn btn-primary">Valider <span class="glyphicon glyphicon-ok"></span></button>
+        <fieldset>
+            <legend>Enregistrement d'un utilisateur</legend>
+            <div class="form-group">
+                <label for="username" class="col-md-2 control_label">Login :</label>
+                <input class="form-control" type="text" id="username" name="fos_user_registration_form[username]"
+                       required="required"/>
             </div>
-        </div>
-    </fieldset>
+            <div class="form-group">
+                <label for="email" class="col-md-2 control_label">Email :</label>
+                <input class="form-control" type="email" id="email" name="fos_user_registration_form[email]"
+                       required="required"/>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-md-2 control_label">Nom :</label>
+                <input class="form-control" type="text" id="email" name="fos_user_registration_form[last_name]"
+                       required="required"/>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-md-2 control_label">Prénom :</label>
+                <input class="form-control" type="text" id="email" name="fos_user_registration_form[first_name]"
+                       required="required"/>
+            </div>
+            <div class="row">
+
+            <div class="form-group  col-6">
+                <label for="plainPassword_first" class="col-6 control_label">Mot de passe :</label>
+                <input class="form-control" type="password" id="plainPassword_first"
+                       name="fos_user_registration_form[plainPassword][first]" value="Hedwige_45Hp"
+                       required="required"/>
+            </div>
+            <div class="form-group  col-6">
+                <label for="plainPassword_second" class="col-6 control_label">Confirmer :</label>
+                <input class="form-control" type="password" id="plainPassword_second"
+                       name="fos_user_registration_form[plainPassword][second]" value="Hedwige_5Hp"
+                       required="required"/>
+            </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-primary">Valider <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                </div>
+            </div>
+        </fieldset>
     </div>
     {{ form_widget(form._token) }}
 </form>
