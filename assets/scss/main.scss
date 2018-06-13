@@ -2,7 +2,9 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~bootswatch/dist/lux/bootswatch";
 @import "navbar";
-
+body {
+  padding-bottom: 50px;
+}
 //NAVBAR
 
 .navbar {
