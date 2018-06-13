@@ -2,7 +2,7 @@
 
 namespace AppBundle\Services;
 
-use AppBundle\Entity\Boat;
+use AppBundle\Entity\Finder;
 use AppBundle\Entity\Tile;
 use AppBundle\Repository\TileRepository;
 
@@ -34,7 +34,7 @@ class MapManager
 
     public function getRandomIsland(): Tile
     {
-        $tiles = $this->tileRepository->findByType('Island');
+        $tiles = $this->tileRepository->findByType('oeuvre');
         $rand = array_rand($tiles, 1);
         $tile = $this->tileRepository->findOneById($tiles[$rand]);
         return $tile;
@@ -48,10 +48,10 @@ class MapManager
         }
     }
 
-    public function checkTreasure(Boat $boat): bool
+    public function checkTreasure(Finder $finder): bool
     {
         $treasureIsland = $this->tileRepository->findOneByHasTreasure(1);
-        if ($treasureIsland->getCoordX() === $boat->getCoordX() and $treasureIsland->getCoordY() === $boat->getCoordY()) {
+        if ($treasureIsland->getCoordX() === $finder->getCoordX() and $treasureIsland->getCoordY() === $finder->getCoordY()) {
             return true;
         } else {
             return false;
