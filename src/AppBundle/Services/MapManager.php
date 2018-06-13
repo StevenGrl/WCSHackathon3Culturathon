@@ -2,7 +2,7 @@
 
 namespace AppBundle\Services;
 
-use AppBundle\Entity\Boat;
+use AppBundle\Entity\Finder;
 use AppBundle\Entity\Tile;
 use AppBundle\Repository\TileRepository;
 
