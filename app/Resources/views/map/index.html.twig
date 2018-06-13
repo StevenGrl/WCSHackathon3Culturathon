@@ -19,7 +19,7 @@
                                     <div class="tile col-xs-1 {{ map[x][y].type }}">
                                         <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                         <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
-                                        {% if boat.coordX == x and boat.coordY == y %}
+                                        {% if finder.coordX == x and finder .coordY == y %}
                                             <img class="finder img-responsive" src="{{ asset('assets/images/finder.png') }}"
                                                  alt="finder"/>
                                         {% endif %}
