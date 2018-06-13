@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artworks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Artist</th>
+                <th>Description</th>
+                <th>Coordx</th>
+                <th>Coordy</th>
+                <th>Date</th>
+                <th>Enigma</th>
+                <th>Answer</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artWork in artWorks %}
+            <tr>
+                <td><a href="{{ path('artwork_show', { 'id': artWork.id }) }}">{{ artWork.id }}</a></td>
+                <td>{{ artWork.name }}</td>
+                <td>{{ artWork.artist }}</td>
+                <td>{{ artWork.description }}</td>
+                <td>{{ artWork.coordX }}</td>
+                <td>{{ artWork.coordY }}</td>
+                <td>{% if artWork.date %}{{ artWork.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ artWork.enigma }}</td>
+                <td>{{ artWork.answer }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artwork_show', { 'id': artWork.id }) }}"  class="btn btn-primary">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artwork_edit', { 'id': artWork.id }) }}"  class="btn btn-primary">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artwork_new') }}"  class="btn btn-primary">Create a new artWork</a>
+        </li>
+    </ul>
+{% endblock %}
