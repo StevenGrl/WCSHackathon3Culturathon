@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artwork</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ artWork.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ artWork.name }}</td>
+            </tr>
+            <tr>
+                <th>Artist</th>
+                <td>{{ artWork.artist }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ artWork.description }}</td>
+            </tr>
+            <tr>
+                <th>Coordx</th>
+                <td>{{ artWork.coordX }}</td>
+            </tr>
+            <tr>
+                <th>Coordy</th>
+                <td>{{ artWork.coordY }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if artWork.date %}{{ artWork.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Enigma</th>
+                <td>{{ artWork.enigma }}</td>
+            </tr>
+            <tr>
+                <th>Answer</th>
+                <td>{{ artWork.answer }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artwork_index') }}" >Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('artwork_edit', { 'id': artWork.id }) }}"  class="btn btn-primary">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}
