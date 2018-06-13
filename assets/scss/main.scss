@@ -7,13 +7,28 @@ body {
 }
 //NAVBAR
 
-.navbar {
-  max-height: 50px;
+.lg-dropup {
+  font-size: 1.09375rem;
 }
 
-.navbar-brand-center
-{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
+  .dropdown-menu {
+    background-color: #e83e8c;
+    font-size: 1rem;
+    .dropdown-item {
+      color: #ffffff;
+    }
+    .dropdown-item:hover {
+      background-color: #343a40;
+    }
+  }
+
+  .navbar {
+    max-height: 50px;
+  }
+
+  .navbar-brand-center
+  {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }

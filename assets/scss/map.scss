@@ -1,0 +1,25 @@
+@keyframes myFinder {
+  0% {
+    transform: rotate(-5deg);
+    translate(0 px, 0 px);
+  }
+  50% {
+    transform: translate(5px, 5px);
+  }
+  100% {
+    transform: rotate(5deg) translate(0px, 0px);
+  }
+}
+
+.finder {
+  animation: 3s linear myFinder 0s infinite alternate;
+  filter: drop-shadow(3px 3px 5px #6d2c19);
+}
+
+.map {
+  background-image: url('../build/map.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 1em;
+  margin-top: 1em;
+}

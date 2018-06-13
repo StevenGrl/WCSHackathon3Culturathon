@@ -31,15 +31,15 @@ class FinderController extends Controller
         $x = $finder->getCoordX();
         if ($direction === "N" || $direction === "S") {
             if ($direction === "N") {
-                $y -= 1;
+                $y--;
             } else {
                 $y++;
             }
         } elseif ($direction === "E" || $direction === "W") {
             if ($direction === "E") {
-                $x--;
-            } else {
                 $x++;
+            } else {
+                $x--;
             }
         }
         $tileRepository = $this->getDoctrine()->getRepository(Tile::class);
