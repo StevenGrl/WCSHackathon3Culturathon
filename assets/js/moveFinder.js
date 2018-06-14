@@ -1,7 +1,7 @@
 $(document).on('click', '.move', function (e) {
     e.preventDefault();
     let move = $(this).attr('data-move');
-    ajaxDirection(direction);
+    ajaxDirection(move);
 });
 
 function ajaxDirection(move) {
