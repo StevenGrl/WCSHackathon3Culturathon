@@ -10,6 +10,7 @@
 
 {% block body %}
     <h1>Map</h1>
+    <div id="message">
     {% for label, messages in app.flashes %}
         <div class="row">
             <div class="col-sm-12">
@@ -20,10 +21,11 @@
             {% endfor %}
             </div>
         </div>
+    </div>
     {% endfor %}
     <div class="row">
         <div class="col-xs-10">
-            <div class="map">
+            <div id="map" class="map">
                 {% if map is empty %}
                     <div class="alert alert-warning">Woups ! La carte est vide :/</div>
                 {% endif %}

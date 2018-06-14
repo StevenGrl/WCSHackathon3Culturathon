@@ -82,7 +82,6 @@
 }
 
 .infos {
-  background-image: url('../images/floor.png');
   width:100%;
   min-height:300px;
   margin-top:1em;
@@ -95,21 +94,18 @@ h2 {
 }
 
 .floor {
-  background-image: url('../images/floor.jpg');
-  z-index: 1;
+  background-image: url('../images/floor2.jpg');
 }
 
 .wall {
   background-image: url('../images/wall.png');
-  z-index: 1;
 }
 
 .oeuvre {
   background-image: url('../images/tableau.jpg');
-  z-index: 1;
 }
 
 .door {
   background-image: url('../images/door.png');
-  z-index: 1;
+  background-color: lightgrey;
 }
