@@ -1,0 +1,96 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('build/map.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/moveGuide.js') }}"></script>
+{% endblock %}
+{% block page_title %}
+Map
+{% endblock %}
+{% block body %}
+    <div id="messageFlash">
+    {% for label, messages in app.flashes %}
+        <div class="row">
+            <div class="col-sm-12">
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="map" class="map">
+                {% if map is empty %}
+                    <div class="alert alert-warning">Woups ! Le museum a disparu ! :/</div>
+                {% endif %}
+                {% for y in 0..8 %}
+                    <div class="row">
+                        {% for x in 0..6 %}
+                            {% if map[x][y] is defined %}
+                                <div class="tile col-xs-1 {{ map[x][y].type }}">
+                                    <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
+                                    <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
+                                    {% if finder.coordX == x and finder .coordY == y %}
+                                        <img class="finder img-responsive" src="{{ asset('images/bonhomme.png') }}"
+                                             alt="finder"/>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="infos d-inline-block col-6">
+                <h2>Information</h2>
+                <p>
+                    {% if oeuvre is defined %}
+                    <span class="blue">Cette oeuvre se nomme : {{ artWork.name }}</span>
+                    <span class="blue">C'est une pièce réalisée par le maître "{{ artWork.artiste }}"</span>
+                    <span class="blue">blabla-vide</span>
+                    <span class="blue">Pour en savoir plus, suivez le guide ! <a href="#" class="btn btn-primary"></a></span>
+                    {% endif %}
+                </p>
+            </div>
+            <div class="navigation d-inline-block col-5">
+                <h2>Navigation</h2>
+                <p class="text-center">
+                    <a class="btn btn-primary move"
+                       data-move="N"
+                       href="{{ path('moveDirectionGuide', {"direction": 'N'}) }}">
+                        <i class="fas fa-chevron-up"></i>
+                    </a>
+                </p>
+                <p class="text-center">
+                    <a class="btn btn-primary move"
+                       data-move="W"
+                       href="{{ path('moveDirectionGuide', {"direction": 'W'}) }}">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a class="btn btn-primary move"
+                       data-move="E"
+                       href="{{ path('moveDirectionGuide', {"direction": 'E'}) }}">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </p>
+                <p class="text-center">
+                    <a class="btn btn-primary move"
+                       data-move="S"
+                       href="{{ path('moveDirectionGuide', {"direction": 'S'}) }}">
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

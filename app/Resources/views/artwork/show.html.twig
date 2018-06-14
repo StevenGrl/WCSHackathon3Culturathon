@@ -24,9 +24,13 @@
                                     class="fas fa-leaf"></i> {{ artWork.materials.name }}</a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="nav-link"
-                           aria-controls="pills-contact" aria-selected="false"><i class="far fa-star "></i>Mettre l'oeuvre en favoris</a>
-
+                        {#{% if artWork.user.id is defined %}#}
+                            <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="nav-link"
+                               aria-controls="pills-contact" aria-selected="false"><i class="far fa-star "></i>Mettre l'oeuvre en favoris</a>
+                        {#{% else %}#}
+                            {#<a href="#" class="nav-link"#}
+                               {#aria-controls="pills-contact" aria-selected="false"><i class="far fa-star selectedPills"></i>   Oeuvre en favoris!</a>#}
+                        {#{% endif %}#}
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
