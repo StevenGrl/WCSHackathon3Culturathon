@@ -14,10 +14,10 @@ use FOS\UserBundle\Model\User as BaseUser;
 class User extends BaseUser
 {
     /**
-     * @var
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Favorite", mappedBy="users")
      */
-    private $artWorks;
+    private $user;
+
     /**
      * @var int
      *
@@ -137,5 +137,73 @@ class User extends BaseUser
     public function getArtWorks()
     {
         return $this->artWorks;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \AppBundle\Entity\Favorite $user
+     *
+     * @return User
+     */
+    public function addUser(\AppBundle\Entity\Favorite $user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \AppBundle\Entity\Favorite $user
+     */
+    public function removeUser(\AppBundle\Entity\Favorite $user)
+    {
+        $this->users->removeElement($user);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * Set people
+     *
+     * @param \AppBundle\Entity\Favorite $people
+     *
+     * @return User
+     */
+    public function setPeople(\AppBundle\Entity\Favorite $people = null)
+    {
+        $this->people = $people;
+
+        return $this;
+    }
+
+    /**
+     * Get people
+     *
+     * @return \AppBundle\Entity\Favorite
+     */
+    public function getPeople()
+    {
+        return $this->people;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

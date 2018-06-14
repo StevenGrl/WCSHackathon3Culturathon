@@ -97,9 +97,10 @@ class ArtWork
      */
     private $type;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="artWorks")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Favorite", mappedBy="oeuvre")
+     *
      */
-    private $user;
+    private $oeuvres;
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tech", inversedBy="artWorks")
      */
@@ -590,5 +591,84 @@ class ArtWork
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set oeuvres
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvres
+     *
+     * @return ArtWork
+     */
+    public function setOeuvres(\AppBundle\Entity\Favorite $oeuvres = null)
+    {
+        $this->oeuvres = $oeuvres;
+
+        return $this;
+    }
+
+    /**
+     * Get oeuvres
+     *
+     * @return \AppBundle\Entity\Favorite
+     */
+    public function getOeuvres()
+    {
+        return $this->oeuvres;
+    }
+
+    /**
+     * Set oeuvre
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvre
+     *
+     * @return ArtWork
+     */
+    public function setOeuvre(\AppBundle\Entity\Favorite $oeuvre = null)
+    {
+        $this->oeuvre = $oeuvre;
+
+        return $this;
+    }
+
+    /**
+     * Get oeuvre
+     *
+     * @return \AppBundle\Entity\Favorite
+     */
+    public function getOeuvre()
+    {
+        return $this->oeuvre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->oeuvres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add oeuvre
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvre
+     *
+     * @return ArtWork
+     */
+    public function addOeuvre(\AppBundle\Entity\Favorite $oeuvre)
+    {
+        $this->oeuvres[] = $oeuvre;
+
+        return $this;
+    }
+
+    /**
+     * Remove oeuvre
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvre
+     */
+    public function removeOeuvre(\AppBundle\Entity\Favorite $oeuvre)
+    {
+        $this->oeuvres->removeElement($oeuvre);
     }
 }
