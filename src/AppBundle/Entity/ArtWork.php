@@ -29,9 +29,8 @@ class ArtWork
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="artist", type="string", length=255)
+     * @var int
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Artist", inversedBy="artWorks")
      */
     private $artist;
 
@@ -162,30 +161,7 @@ class ArtWork
     {
         return $this->name;
     }
-
-    /**
-     * Set artist
-     *
-     * @param string $artist
-     *
-     * @return ArtWork
-     */
-    public function setArtist($artist)
-    {
-        $this->artist = $artist;
-
-        return $this;
-    }
-
-    /**
-     * Get artist
-     *
-     * @return string
-     */
-    public function getArtist()
-    {
-        return $this->artist;
-    }
+    
 
     /**
      * Set description
@@ -593,21 +569,31 @@ class ArtWork
         return $this->user;
     }
 
-    /**
-     * Set oeuvres
+    /** 
+     * Set artist
      *
-     * @param \AppBundle\Entity\Favorite $oeuvres
+     * @param \AppBundle\Entity\Artist $artist
      *
      * @return ArtWork
      */
-    public function setOeuvres(\AppBundle\Entity\Favorite $oeuvres = null)
+    public function setArtist(\AppBundle\Entity\Artist $artist = null)
     {
-        $this->oeuvres = $oeuvres;
+        $this->artist = $artist;
 
         return $this;
     }
 
     /**
+     * Get artist
+     *
+     * @return \AppBundle\Entity\Artist
+     */
+    public function getArtist()
+    {
+        return $this->artist;
+    }
+  
+     /**
      * Get oeuvres
      *
      * @return \AppBundle\Entity\Favorite

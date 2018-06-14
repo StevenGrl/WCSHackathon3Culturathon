@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Artists list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for artist in artists %}
+            <tr>
+                <td><a href="{{ path('artist_show', { 'id': artist.id }) }}">{{ artist.id }}</a></td>
+                <td>{{ artist.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('artist_show', { 'id': artist.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('artist_edit', { 'id': artist.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('artist_new') }}">Create a new artist</a>
+        </li>
+    </ul>
+{% endblock %}

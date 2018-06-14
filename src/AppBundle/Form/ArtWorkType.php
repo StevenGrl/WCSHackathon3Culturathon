@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Artist;
 use AppBundle\Entity\Materials;
 use AppBundle\Entity\Museum;
 use AppBundle\Entity\Paint;
@@ -22,6 +23,10 @@ class ArtWorkType extends AbstractType
     {
         $builder
             ->add('name')
+            ->add('description', EntityType::class, array(
+                'class' => Artist::class,
+                'choice_label' => 'description'
+            ))
             ->add('artist')
             ->add('description')
             ->add('long_description')
