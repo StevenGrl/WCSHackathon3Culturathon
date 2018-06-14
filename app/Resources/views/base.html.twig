@@ -10,9 +10,9 @@
     {% endblock %}
 </head>
 <body>
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between flex-nowrap flex-row py-0">
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between flex-row py-lg-0 py-sm-2">
     {% if artWork is defined %}
-    <div id="drop_one" class="nav-item navbar-brand">
+    <div id="drop_one" class="nav-item navbar-brand mx-auto">
         <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
             Menu de l'oeuvre
@@ -35,7 +35,7 @@
             {% endif %}
         </a>
     </div>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -54,17 +54,17 @@
                     <a class="dropdown-item" href="#">favoris 3</a>
                 </div>
             </li>
-            <li class="nav-item align-self-center d-lg-none">
+            <li class="nav-item align-self-center d-lg-none mx-auto">
                 <a class="nav-link" href="#">Fonction secrète</a>
             </li>
 
-            <li class="nav-item align-self-center">
-                <a class="nav-link" href="/">acceuil</a>
+            <li class="nav-item align-self-center mx-auto">
+                <a class="nav-link " href="/">acceuil</a>
             </li>
-            <li class="nav-item align-self-center">
+            <li class="nav-item align-self-center mx-auto">
                 <a class="nav-link" href="{{ path('concept') }}">concept</a>
             </li>
-            <li class="nav-item align-self-center">
+            <li class="nav-item align-self-center mx-auto">
                 <a class="nav-link" href="{{ path('fos_user_security_login') }}">login</a>
             </li>
         </ul>
