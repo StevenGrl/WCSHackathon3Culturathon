@@ -1,68 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/map.css') }}">
+    <link rel="stylesheet" href="{{ asset('build/map.css') }}">
 {% endblock %}
 {% block body %}
-    <div class="container-fluid ">
-        <h1>Map</h1>
-        <div class="row">
-            <div class="col-xs-10">
-                <div class="map">
-                    {% if map is empty %}
-                        <div class="alert alert-warning">Woups ! La carte est vide :/</div>
-                    {% endif %}
-                    {% for y in 0..6 %}
-                        <div class="row">
-                            {% for x in 0..12 %}
-                                {% if map[x][y] is defined %}
-                                    <div class="tile col-xs-1 {{ map[x][y].type }}">
-                                        <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
-                                        <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
-                                        {% if finder.coordX == x and finder .coordY == y %}
-                                            <img class="finder img-responsive" src="{{ asset('assets/images/finder.png') }}"
-                                                 alt="finder"/>
-                                        {% endif %}
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
-                        </div>
-                    {% endfor %}
-                </div>
+    <h1>Map</h1>
+    <div class="row">
+        <div class="col-xs-10">
+            <div class="map">
+                {% if map is empty %}
+                    <div class="alert alert-warning">Woups ! La carte est vide :/</div>
+                {% endif %}
+                {% for y in 0..8 %}
+                    <div class="row">
+                        {% for x in 0..6 %}
+                            {% if map[x][y] is defined %}
+                                <div class="tile col-xs-1 {{ map[x][y].type }}">
+                                    <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
+                                    <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
+                                    {% if finder.coordX == x and finder .coordY == y %}
+                                        <img class="finder img-responsive" src="{{ asset('images/finder.png') }}"
+                                             alt="finder"/>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
             </div>
-            <div class="col-xs-2">
-                <div class="infos">
-                    <h2>Information</h2>
-                    <p>
-                        <span class="blue">Finder is in tile : </span>
-                        {#<span class="red">{{ finder.coordX }}, {{ finder.coordY }}</span>#}
-                    </p>
-                    <p>
-                        <span class="blue">Tile type is : </span>
-                        {#<span class="red">{{ map[finder.coordX][finder.coordY].type }}</span>#}
-                    </p>
-                </div>
-                <div class="navigation">
-                    <h2>Navigation</h2>
-                    <p class="text-center">
-                        <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'N'}) }}">
-                            <i class="fas fa-chevron-up"></i> N
-                        </a>
-                    </p>
-                    <p class="text-center">
-                        <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'W'}) }}">
-                            <i class="fas fa-chevron-left"></i> W
-                        </a>
-                        <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'E'}) }}">
-                            E <i class="fas fa-chevron-right"></i>
-                        </a>
-                    </p>
-                    <p class="text-center">
-                        <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'S'}) }}">
-                            <i class="fas fa-chevron-down"></i> S
-                        </a>
-                    </p>
-                </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="infos">
+                <h2>Information</h2>
+                <p>
+                    <span class="blue">Tile type is : </span>
+                    {#<span class="red">{{ map[finder.coordX][finder.coordY].type }}</span>#}
+                </p>
+            </div>
+            <div class="navigation">
+                <h2>Navigation</h2>
+                <p class="text-center">
+                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'N'}) }}">
+                        <i class="fas fa-chevron-up"></i> N
+                    </a>
+                </p>
+                <p class="text-center">
+                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'W'}) }}">
+                        <i class="fas fa-chevron-left"></i> W
+                    </a>
+                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'E'}) }}">
+                        E <i class="fas fa-chevron-right"></i>
+                    </a>
+                </p>
+                <p class="text-center">
+                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'S'}) }}">
+                        <i class="fas fa-chevron-down"></i> S
+                    </a>
+                </p>
             </div>
         </div>
     </div>
