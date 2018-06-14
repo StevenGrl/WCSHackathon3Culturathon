@@ -97,6 +97,10 @@ class ArtWork
      */
     private $type;
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="artWorks")
+     */
+    private $user;
+    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tech", inversedBy="artWorks")
      */
     private $tech;
@@ -562,5 +566,29 @@ class ArtWork
     public function getTile()
     {
         return $this->tile;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return ArtWork
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
