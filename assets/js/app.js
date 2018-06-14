@@ -3,6 +3,8 @@ import $ from "jquery"
 import 'bootstrap/dist/js/bootstrap'
 
 $(window).ready(function() {
+    $('#imageHidden').hide();
+
     if ($(this).width() >= 1280) {
         $("#navbar").addClass("fixed-top");
         $("#drop_one").addClass("dropdown");
@@ -30,8 +32,15 @@ $(window).resize(function() {
 
 $('#collapseHidden').click(function(){
     $('#collapseHidden').hide();
+    $('#imageHidden').show();
+    $('#imageShow').hide();
+
+
 });
 $('#collapseShow').click(function(){
     $('#collapseHidden').show();
+    $('#imageHidden').hide();
+    $('#imageShow').show();
+
 
 });
