@@ -7,9 +7,10 @@
 {% block javascripts %}
     <script src="{{ asset('build/moveFinder.js') }}"></script>
 {% endblock %}
-
+{% block page_title %}
+Map
+{% endblock %}
 {% block body %}
-    <h1>Map</h1>
     <div id="message">
     {% for label, messages in app.flashes %}
         <div class="row">
