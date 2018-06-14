@@ -61,3 +61,10 @@ $('#pills-tab').click(function(){
     $('#pills-tabContent').show();
 
 });
+
+$(window).ready(function (e) {
+    $.get('/favorite').done(function (result) {
+        const favorites = $(result).find('#favorite');
+        $('#favorite').replaceWith(favorites);
+    });
+});

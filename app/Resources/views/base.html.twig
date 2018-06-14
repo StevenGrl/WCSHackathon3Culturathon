@@ -10,76 +10,9 @@
     {% endblock %}
 </head>
 <body>
-
-<nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-between flex-row py-lg-0 py-sm-2">
-    {% if artWork is defined %}
-    <div id="drop_one" class="nav-item navbar-brand mx-auto">
-        <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-           aria-haspopup="true" aria-expanded="false">
-            Menu de l'oeuvre
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="{{ path( 'time_show', { id : artWork.time.id }) }}">Epoque</a>
-            <a class="dropdown-item" href="{{ path('artist_show', { id : artWork.artist.id}) }}">Artiste</a>
-            <a class="dropdown-item" href="{{ path('style_show', { id : artWork.style.id}) }}">Style</a>
-        </div>
-    </div>
-    {% endif %}
-    <div class="ml-5">
-        <a class="navbar-brand nav-item text-light"
-           href="#">
-            {% if artWork is defined %}
-                {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist.name }}
-            {% else %}
-                {%  block page_title %}
-                {% endblock %}
-            {% endif %}
-        </a>
-    </div>
-    <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="dropdown-divider"></div>
-        <ul class="navbar-nav ml-auto">
-            <li id="drop_two" class="nav-item navbar-brand">
-                <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    Mes favoris
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                    {% for favorite in favorites %}
-                        {% if favorite.favourite == 1 %}
-                        <a class="dropdown-item" href="{{ path('artwork_show', { 'id': favorite.oeuvre.id }) }}">{{ favorite.oeuvre.name }}</a>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            <li class="nav-item align-self-center d-lg-none mx-auto">
-                <a class="nav-link" href="#">Fonction secrète</a>
-            </li>
-
-            <li class="nav-item align-self-center mx-auto">
-                <a class="nav-link " href="/">Accueil</a>
-            </li>
-            <li class="nav-item align-self-center mx-auto">
-                <a class="nav-link" href="{{ path('concept') }}">concept</a>
-            </li>
-            <li class="nav-item align-self-center mx-auto">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <a href="{{ path('fos_user_security_logout') }}" class="nav-link">
-                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                    </a>
-                {% else %}
-                    <a href="{{ path('fos_user_security_login') }}" class="nav-link">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                {% endif %}
-            </li>
-
-        </ul>
-    </div>
-</nav>
+{% block navbar %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
 {% block free %}
     <div class="container">
         {% block body %}
