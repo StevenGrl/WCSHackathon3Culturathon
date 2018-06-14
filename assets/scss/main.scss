@@ -86,6 +86,29 @@ h1, h2, h3, h4, h5, h6 {
   text-align: justify;
 }
 
+.resume{
+  text-align: justify;
+}
+.center-pills {
+  display: flex;
+  justify-content: center;
+}
+.nav-pills {
+
+  .nav-item {
+    background-color: $hover-grey;
+    padding: 5px;
+  }
+
+  a{
+    color: white;
+  }
+  .nav-link.active{
+    background-color: black;
+
+  }
+}
+
 ///////////
 //MediaQuery
 //////////

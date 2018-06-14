@@ -4,35 +4,65 @@
 
     <div class="container">
         <div class="row text-center">
-            <div class="col-2 py-5">
-                <p><i class="fas fa-clone m-2"></i> {{ artWork.type.name }} </p>
-                <p><i class="fas fa-pencil-alt m-2"></i> {{ artWork.tech.name }} </p>
-                <p><i class="fas fa-leaf m-2"></i> {{ artWork.materials.name }} </p>
-                <img class="w-75"
-                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg" id="imageHidden">
-            </div>
-            <div class="col-10">
 
-                <p class="resume">{{ artWork.description }}<p>
+            <div class="col-2 py-5">
+                <img class="w-100"
+                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg"
+                     id="imageShow">
+            </div>
+
+            <!-- Bouton "Voir plus" -->
+
+            <div class="col-10">
+                <!-- Bouton "painting" -->
+                <ul class="nav nav-pills mb-3 center-pills" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                           aria-controls="pills-home" aria-selected="false"><i
+                                    class="fas fa-clone"></i> {{ artWork.type.name }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                           aria-controls="pills-profile" aria-selected="false"><i
+                                    class="fas fa-pencil-alt"></i> {{ artWork.tech.name }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
+                           aria-controls="pills-contact" aria-selected="false"><i
+                                    class="fas fa-leaf"></i> {{ artWork.materials.name }}</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                         aria-labelledby="pills-home-tab">...
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        ...
+                    </div>
+                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                        ...
+                    </div>
+                </div>
+                <p class="resume" id="hidetext">{{ artWork.longdescription }}<p>
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
                        aria-expanded="false" aria-controls="collapseExample" id="collapseHidden">
-                        Lire la description
-                    </a>
+                        Agrandir l'image ! </a>
                 </p>
                 <div>
-                <div class="collapse" id="collapseExample">
-                    <div class="card card-body">
-                        {{ artWork.longdescription }}
+                    <div class="collapse" id="collapseExample">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                data-target="#collapseExample"
+                                aria-expanded="false" aria-controls="collapseExample" id="collapseShow">
+                            Revenir !
+                        </button>
+                        <img class="objeFit w-75"
+                             src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg"
+                             id="imageHidden">
                     </div>
-                    <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample"
-                            aria-expanded="false" aria-controls="collapseExample" id="collapseShow">
-                        Refermer la description
-                    </button>
-                </div>
-                <img class="w-75"
-                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg" id="imageShow">
                 </div>
             </div>
         </div>
     </div>
+
 {% endblock %}
+
