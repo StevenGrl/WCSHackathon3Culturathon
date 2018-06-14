@@ -17,7 +17,7 @@
         <a class="navbar-brand nav-item text-light"
            href="#">
             {% if artWork is defined %}
-                {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist }}
+                {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist.name }}
             {% else %}
                 {%  block page_title %}
                 {% endblock %}
