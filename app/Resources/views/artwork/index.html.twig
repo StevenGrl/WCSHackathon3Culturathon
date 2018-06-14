@@ -37,10 +37,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('artwork_show', { 'id': artWork.id }) }}">show</a>
+                            <a href="{{ path('artwork_show', { 'id': artWork.id }) }}"   class="btn btn-primary">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('artwork_edit', { 'id': artWork.id }) }}">edit</a>
+                            <a href="{{ path('artwork_edit', { 'id': artWork.id }) }}"   class="btn btn-primary">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -51,7 +51,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('artwork_new') }}">Create a new artWork</a>
+            <a href="{{ path('artwork_new') }}"   class="btn btn-primary">Create a new artWork</a>
         </li>
     </ul>
 {% endblock %}
