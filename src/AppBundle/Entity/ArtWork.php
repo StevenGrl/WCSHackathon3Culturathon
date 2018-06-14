@@ -43,6 +43,13 @@ class ArtWork
     private $description;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="long_description", type="text")
+     */
+    private $long_description;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="coordX", type="integer")
@@ -395,6 +402,18 @@ class ArtWork
     public function setRoom(\AppBundle\Entity\Room $room = null)
     {
         $this->room = $room;
+    }
+
+    /**
+     * Set longDescription
+     *
+     * @param string $longDescription
+     *
+     * @return ArtWork
+     */
+    public function setLongDescription($longDescription)
+    {
+        $this->long_description = $longDescription;
 
         return $this;
     }
@@ -503,5 +522,15 @@ class ArtWork
     public function getSizeW()
     {
         return $this->sizeW;
+    }
+
+    /**
+     * Get longDescription
+     *
+     * @return string
+     */
+    public function getLongDescription()
+    {
+        return $this->long_description;
     }
 }
