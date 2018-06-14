@@ -43,6 +43,13 @@ class ArtWork
     private $description;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="long_description", type="text")
+     */
+    private $long_description;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="coordX", type="integer")
@@ -360,5 +367,29 @@ class ArtWork
     public function getMaterials()
     {
         return $this->materials;
+    }
+
+    /**
+     * Set longDescription
+     *
+     * @param string $longDescription
+     *
+     * @return ArtWork
+     */
+    public function setLongDescription($longDescription)
+    {
+        $this->long_description = $longDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get longDescription
+     *
+     * @return string
+     */
+    public function getLongDescription()
+    {
+        return $this->long_description;
     }
 }

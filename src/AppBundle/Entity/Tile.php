@@ -180,4 +180,14 @@ class Tile
         $this->hasTreasure = $hasTreasure;
         return $this;
     }
+
+    /**
+     * Get hasTreasure
+     *
+     * @return boolean
+     */
+    public function getHasTreasure()
+    {
+        return $this->hasTreasure;
+    }
 }
