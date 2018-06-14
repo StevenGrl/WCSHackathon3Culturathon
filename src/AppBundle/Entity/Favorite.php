@@ -23,18 +23,15 @@ class Favorite
 
     /**
      * @var int
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="oeuvre")
-     * @ORM\Column(name="oeuvres", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ArtWork", inversedBy="oeuvres")
      */
-
-    private $oeuvres;
+    private $oeuvre;
 
     /**
      * @var int
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\User", mappedBy="people")
-     * @ORM\Column(name="people", type="integer")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="users")
      */
-    private $peoples;
+    private $user;
 
     /**
      * @var bool

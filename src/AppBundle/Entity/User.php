@@ -14,14 +14,10 @@ use FOS\UserBundle\Model\User as BaseUser;
 class User extends BaseUser
 {
     /**
-     * @var
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Favorite", mappedBy="users")
      */
     private $user;
-    /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Favorite", inversedBy="peoples")
-     */
 
-    private $people;
     /**
      * @var int
      *
@@ -199,5 +195,15 @@ class User extends BaseUser
     public function getPeople()
     {
         return $this->people;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

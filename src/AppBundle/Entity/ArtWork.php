@@ -97,9 +97,9 @@ class ArtWork
      */
     private $type;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Favorite", inversedBy="oeuvres")
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Favorite", mappedBy="oeuvre")
      */
-    private $oeuvre;
+    private $oeuvres;
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tech", inversedBy="artWorks")
      */
@@ -638,5 +638,36 @@ class ArtWork
     public function getOeuvre()
     {
         return $this->oeuvre;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->oeuvres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add oeuvre
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvre
+     *
+     * @return ArtWork
+     */
+    public function addOeuvre(\AppBundle\Entity\Favorite $oeuvre)
+    {
+        $this->oeuvres[] = $oeuvre;
+
+        return $this;
+    }
+
+    /**
+     * Remove oeuvre
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvre
+     */
+    public function removeOeuvre(\AppBundle\Entity\Favorite $oeuvre)
+    {
+        $this->oeuvres->removeElement($oeuvre);
     }
 }
