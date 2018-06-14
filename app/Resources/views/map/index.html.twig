@@ -3,8 +3,24 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('build/map.css') }}">
 {% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/moveFinder.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <h1>Map</h1>
+    {% for label, messages in app.flashes %}
+        <div class="row">
+            <div class="col-sm-12">
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
     <div class="row">
         <div class="col-xs-10">
             <div class="map">
@@ -40,7 +56,7 @@
             <div class="navigation">
                 <h2>Navigation</h2>
                 <p class="text-center">
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'N'}) }}">
+                    <a class="btn btn-primary moveUp" href="{{ path('moveDirection', {"direction": 'N'}) }}">
                         <i class="fas fa-chevron-up"></i> N
                     </a>
                 </p>
