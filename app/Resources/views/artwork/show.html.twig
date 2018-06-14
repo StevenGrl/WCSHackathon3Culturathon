@@ -13,6 +13,12 @@
                                         class="fas fa-clone"></i> {{ artWork.type.name }}</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                               role="tab"
+                               aria-controls="pills-contact" aria-selected="false"><i
+                                        class="fas fa-leaf"></i> {{ artWork.paint.name }}</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
                                role="tab"
                                aria-controls="pills-profile" aria-selected="false"><i
@@ -25,7 +31,6 @@
                                         class="fas fa-leaf"></i> {{ artWork.materials.name }}</a>
                         </li>
                     </ul>
-
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                              aria-labelledby="pills-home-tab">
@@ -50,10 +55,21 @@
                          src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg"
                          id="imageShow">
                 </div>
-
                 <!-- Bouton "Voir plus" -->
                 <div class="col-xs-12 col-lg-10">
                     <p class="resume mt-lg-5" id="hidetext">{{ artWork.longdescription }}</p>
+                    <div class="resume mt-lg-5" id="time">
+                        <h3>{{ artWork.time.period }}</h3>
+                        <p>{{ artWork.time.description }}</p>
+                    </div>
+                    <div class="resume mt-lg-5" id="artist">
+                        <h3>{{ artWork.artist.name }}</h3>
+                        <p>{{ artWork.artist.description }}</p>
+                    </div>
+                    <div class="resume mt-lg-5" id="style">
+                        <h3>{{ artWork.style.name }}</h3>
+                        <p>{{ artWork.style.description }}</p>
+                    </div>
                     <div class="d-sm-block d-none">
                         <a class="btn btn-primary" data-toggle="collapse"
                            href="#collapseExample"

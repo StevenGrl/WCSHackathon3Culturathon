@@ -4,11 +4,19 @@ global.$ = require('jquery');
 
 import 'bootstrap/dist/js/bootstrap'
 
+/////////////////
+//READY
+///////////////
 $(window).ready(function() {
     $('#imageHidden').hide();
     $('#pills-tabContent').hide();
+    $("#artist").addClass("d-none");
+    $("#style").addClass("d-none");
+    $("#time").addClass("d-none");
 
-
+/////////////////
+//NAVBAR MEDIA Q
+///////////////
     if ($(this).width() >= 1280) {
         $("#navbar").addClass("fixed-top");
         $("#drop_one").addClass("dropdown");
@@ -36,11 +44,17 @@ $(window).resize(function() {
     }
 });
 
+///////////
+//SOMETHING
+///////////
 $('#collapseHidden').click(function(){
     $('#collapseHidden').hide();
     $('#imageHidden').show();
     $('#imageShow').hide();
-    $('#hidetext').hide();
+    $("#artist").hide();
+    $("#hidetext").hide();
+    $("#style").hide();
+    $("#time").hide();
     $('#pills-tab').hide();
     $('#pills-tabContent').hide();
     $('#fav').hide();
@@ -51,6 +65,9 @@ $('#collapseShow').click(function(){
     $('#imageHidden').hide();
     $('#imageShow').show();
     $('#hidetext').show();
+    $("#artist").show();
+    $("#style").show();
+    $("#time").show();
     $('#pills-tab').show();
     $('#pills-tabContent').hide();
     $('#fav').show();
@@ -60,4 +77,40 @@ $('#collapseShow').click(function(){
 $('#pills-tab').click(function(){
     $('#pills-tabContent').show();
 
+});
+
+///////////
+//DROPDOWM
+///////////
+
+$("#act-time").click(function(e){
+    $("#artist").addClass("d-none");
+    $("#hidetext").addClass("d-none");
+    $("#style").addClass("d-none");
+    $("#time").removeClass("d-none");
+    e.preventDefault();
+});
+
+$("#act-artist").click(function(e){
+    $("#time").addClass("d-none");
+    $("#hidetext").addClass("d-none");
+    $("#style").addClass("d-none");
+    $("#artist").removeClass("d-none");
+    e.preventDefault();
+});
+
+$("#act-style").click(function(e){
+    $("#time").addClass("d-none");
+    $("#hidetext").addClass("d-none");
+    $("#artist").addClass("d-none");
+    $("#style").removeClass("d-none");
+    e.preventDefault();
+});
+
+$("#act-desc").click(function(e){
+    $("#time").addClass("d-none");
+    $("#style").addClass("d-none");
+    $("#artist").addClass("d-none");
+    $("#hidetext").removeClass("d-none");
+    e.preventDefault();
 });
