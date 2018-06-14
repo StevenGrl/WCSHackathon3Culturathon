@@ -22,6 +22,13 @@ class ArtWork
     private $id;
 
     /**
+     * @var
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Time", inversedBy="times")
+     */
+    private $time;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -29,11 +36,15 @@ class ArtWork
     private $name;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="artist", type="string", length=255)
+     * @var int
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Artist", inversedBy="artWorks")
      */
     private $artist;
+    /**
+     * @var int
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Style", inversedBy="artWorks")
+     */
+    private $style;
 
     /**
      * @var string
@@ -162,30 +173,7 @@ class ArtWork
     {
         return $this->name;
     }
-
-    /**
-     * Set artist
-     *
-     * @param string $artist
-     *
-     * @return ArtWork
-     */
-    public function setArtist($artist)
-    {
-        $this->artist = $artist;
-
-        return $this;
-    }
-
-    /**
-     * Get artist
-     *
-     * @return string
-     */
-    public function getArtist()
-    {
-        return $this->artist;
-    }
+    
 
     /**
      * Set description
@@ -593,21 +581,31 @@ class ArtWork
         return $this->user;
     }
 
-    /**
-     * Set oeuvres
+    /** 
+     * Set artist
      *
-     * @param \AppBundle\Entity\Favorite $oeuvres
+     * @param \AppBundle\Entity\Artist $artist
      *
      * @return ArtWork
      */
-    public function setOeuvres(\AppBundle\Entity\Favorite $oeuvres = null)
+    public function setArtist(\AppBundle\Entity\Artist $artist = null)
     {
-        $this->oeuvres = $oeuvres;
+        $this->artist = $artist;
 
         return $this;
     }
 
     /**
+     * Get artist
+     *
+     * @return \AppBundle\Entity\Artist
+     */
+    public function getArtist()
+    {
+        return $this->artist;
+    }
+  
+     /**
      * Get oeuvres
      *
      * @return \AppBundle\Entity\Favorite
@@ -670,5 +668,52 @@ class ArtWork
     public function removeOeuvre(\AppBundle\Entity\Favorite $oeuvre)
     {
         $this->oeuvres->removeElement($oeuvre);
+    }
+
+    /**
+<<<<<<< HEAD
+     * Set time
+     *
+     * @param \AppBundle\Entity\Time $time
+     *
+     * @return ArtWork
+     */
+    public function setTime(\AppBundle\Entity\Time $time = null)
+    {
+        $this->time = $time;
+    }
+
+    /**
+     * Set style
+     *
+     * @param \AppBundle\Entity\Style $style
+     *
+     * @return ArtWork
+     */
+    public function setStyle(\AppBundle\Entity\Style $style = null)
+    {
+        $this->style = $style;
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return \AppBundle\Entity\Time
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+
+    /**
+     * Get style
+     *
+     * @return \AppBundle\Entity\Style
+     */
+    public function getStyle()
+    {
+        return $this->style;
     }
 }

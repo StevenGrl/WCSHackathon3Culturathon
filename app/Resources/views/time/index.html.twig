@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Times list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Period</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for time in times %}
+            <tr>
+                <td><a href="{{ path('time_show', { 'id': time.id }) }}">{{ time.id }}</a></td>
+                <td>{{ time.period }}</td>
+                <td>{{ time.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('time_show', { 'id': time.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('time_edit', { 'id': time.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('time_new') }}">Create a new time</a>
+        </li>
+    </ul>
+{% endblock %}

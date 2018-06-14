@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% block page_title %}
+    Epoque {{ time.period }}
+{% endblock %}
+{% block body %}
+                {{ time.description }}
+            <a class="btn btn-warning" href="/">retour</a>
+
+{% endblock %}

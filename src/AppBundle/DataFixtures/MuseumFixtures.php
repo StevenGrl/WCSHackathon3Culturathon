@@ -16,13 +16,13 @@ class MuseumFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $louvre = new Museum();
-        $louvre->setName('Louvre');
-        $louvre->setCity('Paris');
-        $louvre->setLogo('https://i0.wp.com/www.grapheine.com/wp-content/uploads/2016/04/provisoire-louvre-logo.jpg?w=800&ssl=1');
-        $manager->persist($louvre);
+        $fas = new Museum();
+        $fas->setName('French Art Studio');
+        $fas->setCity('Londre');
+        $fas->setLogo('http://www.frenchartstudio.com/images/frenchstudio-logo-white.gif');
+        $manager->persist($fas);
         $manager->flush();
 
-        $this->addReference('Louvre', $louvre);
+        $this->addReference('fas', $fas);
     }
 }
