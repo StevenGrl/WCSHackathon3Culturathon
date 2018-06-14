@@ -51,10 +51,10 @@ class FinderController extends Controller
             $em->flush();
             $checkTreasure = $mapManager->checkTreasure($finder);
             if ($checkTreasure) {
-                $this->addFlash('success', 'Tu as trouvé le trésor bravo à toi mon grand :) !');
+                $this->addFlash('success', 'Tu as trouvé la bonne réponse bravo à toi :) !');
             }
         } else {
-            $this->addFlash('danger', 'Oula ! Si tu fais ça tu vas sauter par la fenêtre !');
+            $this->addFlash('danger', 'Oula ! Si tu fais ça tu vas t\'écraser contre le mur !');
         }
         return $this->redirectToRoute('map');
     }

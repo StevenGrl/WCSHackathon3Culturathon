@@ -10,96 +10,105 @@
 {% block page_title %}
 Map
 {% endblock %}
-{% block body %}
-    <div class="question">
-        {% if question is defined %}
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="alert alert-info">
-                    {{ message }}
+{% block free %}
+    <div class="container-fluid">
+        <div class="offset-lg-3">
+            <div class="question">
+                {% if question is defined %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="alert alert-info">
+                            {{ question }}
+                        </div>
+                    </div>
                 </div>
+                {% endif %}
             </div>
-        </div>
-        {% endif %}
-    </div>
-    <div id="messageFlash">
-    {% for label, messages in app.flashes %}
-        <div class="row">
-            <div class="col-sm-12">
-            {% for message in messages %}
-                <div class="alert alert-{{ label }}">
-                    {{ message }}
+            <div id="messageFlash">
+            {% for label, messages in app.flashes %}
+                <div class="row">
+                    <div class="col-lg-6">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    </div>
                 </div>
             {% endfor %}
             </div>
-        </div>
-    {% endfor %}
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <div id="map" class="map">
-                {% if map is empty %}
-                    <div class="alert alert-warning">Woups ! Le museum a disparu ! :/</div>
-                {% endif %}
-                {% for y in 0..8 %}
-                    <div class="row">
-                        {% for x in 0..6 %}
-                            {% if map[x][y] is defined %}
-                                <div class="tile col-xs-1 {{ map[x][y].type }}">
-                                    <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
-                                    <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
-                                    {% if finder.coordX == x and finder .coordY == y %}
-                                        <img class="finder img-responsive" src="{{ asset('images/finder.png') }}"
-                                             alt="finder"/>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div id="map" class="map">
+                        {% if map is empty %}
+                            <div class="alert alert-warning">Woups ! Le museum a disparu ! :/</div>
+                        {% endif %}
+                        {% for y in 0..8 %}
+                            <div class="row">
+                                {% for x in 0..6 %}
+                                    {% if map[x][y] is defined %}
+                                        <div class="tile col-xs-1 {{ map[x][y].type }}">
+                                            <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
+                                            <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
+                                            {% if map[x][y].artwork.image is defined %}
+                                                <img class="img-responsive oeuvre"
+                                                     src="{{ asset('images/') }}{{ map[x][y].artwork.image }}"
+                                                     alt="">
+                                            {% endif %}
+                                            {% if finder.coordX == x and finder .coordY == y %}
+                                                <img class="finder img-responsive" src="{{ asset('images/finder.png') }}"
+                                                     alt="finder"/>
+                                            {% endif %}
+                                        </div>
                                     {% endif %}
-                                </div>
-                            {% endif %}
+                                {% endfor %}
+                            </div>
                         {% endfor %}
                     </div>
-                {% endfor %}
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="infos col-5">
-            <h2>Informations</h2>
-            <p>
-                {% if artwork is defined %}
-                <span class="blue">Cette oeuvre se nomme : {{ artwork.name }}</span>
-                <span class="blue">C'est une pièce réalisée par le maître "{{ artwork.artiste }}"</span>
-                <span class="blue"></span>
-                <span class="blue">Pour en savoir plus, suivez le guide ! <a href="#" class="btn btn-primary"></a></span>
-                {% endif %}
-            </p>
-        </div>
-        <div class="navigation offset-1 col-5">
-            <h2 class="text-center">Navigation</h2>
-            <p class="text-center">
-                <a class="btn btn-warning move"
-                   data-move="N"
-                   href="{{ path('moveDirection', {"direction": 'N'}) }}">
-                    <i class="fas fa-chevron-up"></i>
-                </a>
-            </p>
-            <p class="text-center">
-                <a class="btn btn-warning move"
-                   data-move="W"
-                   href="{{ path('moveDirection', {"direction": 'W'}) }}">
-                    <i class="fas fa-chevron-left"></i>
-                </a>
-                <a class="btn btn-warning move"
-                   data-move="E"
-                   href="{{ path('moveDirection', {"direction": 'E'}) }}">
-                    <i class="fas fa-chevron-right"></i>
-                </a>
-            </p>
-            <p class="text-center">
-                <a class="btn btn-warning move"
-                   data-move="S"
-                   href="{{ path('moveDirection', {"direction": 'S'}) }}">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
-            </p>
+            <div class="row">
+                <div class="infos col-3">
+                    <h2>Informations</h2>
+                    <p>
+                        {% if artwork is defined %}
+                        <span class="blue">Cette oeuvre se nomme : {{ artwork.name }}</span>
+                        <span class="blue">C'est une pièce réalisée par le maître "{{ artwork.artiste }}"</span>
+                        <span class="blue"></span>
+                        <span class="blue">Pour en savoir plus, suivez le guide ! <a href="#" class="btn btn-primary"></a></span>
+                        {% endif %}
+                    </p>
+                </div>
+                <div class="navigation offset-1 col-5">
+                    <h2 class="text-center">Navigation</h2>
+                    <p class="text-center">
+                        <a class="btn btn-warning move"
+                           data-move="N"
+                           href="{{ path('moveDirection', {"direction": 'N'}) }}">
+                            <i class="fas fa-chevron-up"></i>
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a class="btn btn-warning move"
+                           data-move="W"
+                           href="{{ path('moveDirection', {"direction": 'W'}) }}">
+                            <i class="fas fa-chevron-left"></i>
+                        </a>
+                        <a class="btn btn-warning move"
+                           data-move="E"
+                           href="{{ path('moveDirection', {"direction": 'E'}) }}">
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </p>
+                    <p class="text-center">
+                        <a class="btn btn-warning move"
+                           data-move="S"
+                           href="{{ path('moveDirection', {"direction": 'S'}) }}">
+                            <i class="fas fa-chevron-down"></i>
+                        </a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

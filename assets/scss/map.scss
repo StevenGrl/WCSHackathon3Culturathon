@@ -101,11 +101,12 @@ h2 {
   background-image: url('../images/wall.png');
 }
 
-.oeuvre {
-  background-image: url('../images/tableau.jpg');
-}
-
 .door {
   background-image: url('../images/door.png');
   background-color: lightgrey;
+}
+
+.oeuvre {
+  width: 100%;
+  object-fit: cover;
 }

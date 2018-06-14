@@ -129,6 +129,13 @@ class ArtWork
     private $tile;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    private $image;
+
+    /**
      * Get id
      *
      * @return int
@@ -590,5 +597,29 @@ class ArtWork
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return ArtWork
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }
