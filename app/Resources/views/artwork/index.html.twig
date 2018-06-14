@@ -25,7 +25,7 @@
             <tr>
                 <td><a href="{{ path('artwork_show', { 'id': artWork.id }) }}">{{ artWork.id }}</a></td>
                 <td>{{ artWork.name }}</td>
-                <td>{{ artWork.artist }}</td>
+                <td>{{ artWork.artist.name }}</td>
                 <td>{{ artWork.description }}</td>
                 <td>{{ artWork.coordX }}</td>
                 <td>{{ artWork.coordY }}</td>
