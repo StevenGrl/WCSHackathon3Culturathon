@@ -36,7 +36,7 @@ class ArtWorkFixtures extends Fixture implements DependentFixtureInterface
         $artOne->setMuseum($this->getReference('fas'));
         $artOne->setSizeH(12.7);
         $artOne->setSizeW(9.7);
-        $artOne->setStyle($this->getReference('contemporain'));
+        $artOne->setStyle($this->getReference('impressionnisme'));
         $artOne->setLongDescription('Paysage Urbain, encadrement caisse américaine en bois beige.');
         $manager->persist($artOne);
 
