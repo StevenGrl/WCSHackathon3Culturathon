@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .lg-drop {
-  font-size: 1.09375rem;
+  font-size: 1.1rem;
 }
 
 ///////////
@@ -110,25 +110,25 @@ h1, h2, h3, h4, h5, h6 {
 ///////////
 //MediaQuery
 //////////
-@media (min-width: 1280px) {
+@media (min-width: 1200px) {
   body {
     padding-top: 5em;
     .navbar {
-      font-size: 0.5rem;
+      font-size: 0.8rem;
       .navbar-brand {
-        font-size: 0.7rem;
+        font-size: 1.1rem;
       }
     }
   }
 }
 
-@media (max-width: 1179px) {
+@media (max-width: 1199px) {
   body {
-    padding-top: 1em;
+    padding-top: 0.5em;
     .navbar {
-      font-size: 0.8rem;
+      font-size: 1rem;
       .navbar-brand {
-        font-size: 1.09375rem;
+        font-size: 1rem;
       }
     }
   }
