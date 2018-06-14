@@ -30,7 +30,7 @@ class ArtWork
 
     /**
      * @var string
-     *
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Artist", inversedBy="artWorks")
      * @ORM\Column(name="artist", type="string", length=255)
      */
     private $artist;
