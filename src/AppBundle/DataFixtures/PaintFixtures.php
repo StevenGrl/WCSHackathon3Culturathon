@@ -17,20 +17,21 @@ class PaintFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $huile = new Paint();
+        $acrylique = new Paint();
         $eau = new Paint();
         $aquarelle = new Paint();
-        $huile->setName('huile');
+
+        $acrylique->setName('acrylique');
         $eau->setName('eau');
         $aquarelle->setName('aquarelle');
 
-        $manager->persist($huile);
+        $manager->persist($acrylique);
         $manager->persist($aquarelle);
         $manager->persist($eau);
 
         $manager->flush();
 
-        $this->addReference('huile', $huile);
+        $this->addReference('acrylique', $acrylique);
         $this->addReference('eau', $eau);
         $this->addReference('aquarelle', $aquarelle);
     }

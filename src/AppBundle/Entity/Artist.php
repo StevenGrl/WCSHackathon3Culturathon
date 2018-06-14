@@ -33,8 +33,8 @@ class Artist
     private $description;
 
     /**
-     * @var
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="tech")
+     * @var int
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="Artist")
      */
     private $artWorks;
     /**
@@ -110,5 +110,29 @@ class Artist
     public function getArtWorks()
     {
         return $this->artWorks;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Artist
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }
