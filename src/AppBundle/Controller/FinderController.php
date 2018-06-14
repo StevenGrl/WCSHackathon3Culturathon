@@ -23,6 +23,7 @@ class FinderController extends Controller
     /**
      * @param string $direction
      * @Route("/direction/{direction}", name="moveDirection")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function moveDirection(string $direction)
     {

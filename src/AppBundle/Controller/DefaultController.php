@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -13,9 +14,25 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+        $em = $this->getDoctrine()->getManager();
+        $favorite2 = $em->getRepository('AppBundle:Favorite')->findAll();
+
+        return $this->render('default/index.html.twig', array(
+            'favorites' => $favorite2,
+        ));
     }
+
+    /**
+     * @Route("/favorite", name="favorite")
+     */
+    public function getFavorite()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $favorites = $em->getRepository('AppBundle:Favorite')->findAll();
+
+        return $this->render('navbar.html.twig', array(
+            'favorites' => $favorites,
+        ));
+    }
+
 }

@@ -17,30 +17,31 @@ class ArtWorkFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        $artOne = new ArtWork();
-
-        $artOne->setType($this->getReference('peinture'));
-        $artOne->setTech($this->getReference('pinceau'));
-        $artOne->setMaterials($this->getReference('toile'));
-        $artOne->setPaint($this->getReference('acrylique'));
-        $artOne->setTime($this->getReference('contemporain'));
-        $artOne->setName("Cable Car");
-        $artOne->setArtist($this->getReference('mnp'));
-        $artOne->setDescription("Représentation du pont de Brooklyn.");
-        $artOne->setCoordX(0);
-        $artOne->setCoordY(0);
-        $dateOne = new \DateTime();
-        $artOne->setDate($dateOne->setDate(2016,01,01));
-        $artOne->setEnigma("Comment s'appellent les artistes ?");
-        $artOne->setAnswer("Manolo et Pia");
-        $artOne->setPaint($this->getReference('acrylique'));
-        $artOne->setMuseum($this->getReference('fas'));
-        $artOne->setSizeH(12.7);
-        $artOne->setSizeW(9.7);
-        $artOne->setStyle($this->getReference('impressionnisme'));
-        $artOne->setLongDescription('Paysage Urbain, encadrement caisse américaine en bois beige.');
-        $manager->persist($artOne);
-
+        for ($i = 1; $i < 9; $i++) {
+            $art = new ArtWork();
+            $art->setType($this->getReference('peinture'));
+            $art->setTech($this->getReference('pinceau'));
+            $art->setMaterials($this->getReference('toile'));
+            $art->setPaint($this->getReference('acrylique'));
+            $art->setTime($this->getReference('contemporain'));
+            $art->setName("Cable Car");
+            $art->setArtist($this->getReference('mnp'));
+            $art->setDescription("Représentation du pont de Brooklyn.");
+            $art->setCoordX(0);
+            $art->setCoordY(0);
+            $dateOne = new \DateTime();
+            $art->setDate($dateOne->setDate(2016, 01, 01));
+            $art->setEnigma("Comment s'appellent les artistes ?");
+            $art->setAnswer("Manolo et Pia");
+            $art->setPaint($this->getReference('acrylique'));
+            $art->setMuseum($this->getReference('fas'));
+            $art->setSizeH(12.7);
+            $art->setSizeW(9.7);
+            $art->setStyle($this->getReference('impressionnisme'));
+            $art->setLongDescription('Paysage Urbain, encadrement caisse américaine en bois beige.');
+            $art->setImage($i.'.jpeg');
+            $manager->persist($art);
+        }
         $manager->flush();
     }
 

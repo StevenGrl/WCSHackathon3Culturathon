@@ -79,6 +79,7 @@ $('#pills-tab').click(function(){
 
 });
 
+
 ///////////
 //DROPDOWM
 ///////////
@@ -113,4 +114,14 @@ $("#act-desc").click(function(e){
     $("#artist").addClass("d-none");
     $("#hidetext").removeClass("d-none");
     e.preventDefault();
+});
+
+///////////
+//DROPDOWM
+///////////
+$(window).ready(function (e) {
+    $.get('/favorite').done(function (result) {
+        const favorites = $(result).find('#favorite');
+        $('#favorite').replaceWith(favorites);
+    });
 });

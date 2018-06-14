@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\ArtWork;
 use AppBundle\Entity\Finder;
 use AppBundle\Entity\Tile;
 use AppBundle\Services\MapManager;
@@ -29,9 +30,17 @@ class MapController extends Controller
 
         $finder = $this->getFinder();
 
+        $tileTreasure = $em->getRepository(Tile::class)->findOneByHasTreasure(1);
+
+        $question = $em->getRepository(ArtWork::class)->findOneByTile($tileTreasure)->getEnigma();
+
+        $form = $this->createForm('AppBundle\Form\AnswerType');
+
         return $this->render('map/index.html.twig', [
             'map'  => $map ?? [],
             'finder' => $finder,
+            'question' => $question,
+            'form' => $form->createView(),
         ]);
     }
 

@@ -51,8 +51,10 @@ class MapManager
     public function checkTreasure(Finder $finder): bool
     {
         $treasureArtwork = $this->tileRepository->findOneByHasTreasure(1);
-        if ($treasureArtwork->getCoordX() === $finder->getCoordX() and $treasureArtwork->getCoordY() === $finder->getCoordY()) {
-            return true;
+        if ($treasureArtwork) {
+            if ($treasureArtwork->getCoordX() === $finder->getCoordX() and $treasureArtwork->getCoordY() === $finder->getCoordY()) {
+                return true;
+            }
         } else {
             return false;
         }
