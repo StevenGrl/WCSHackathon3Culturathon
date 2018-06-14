@@ -135,8 +135,9 @@ h1, h2, h3, h4, h5, h6 {
   position: fixed;
   right: 0;
   bottom: 0;
-  min-width: 100%;
+  min-width: 100vw;
   min-height: 100%;
+  opacity: 0.4;
 }
 
 .content {
