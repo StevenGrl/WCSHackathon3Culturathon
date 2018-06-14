@@ -4,6 +4,8 @@ import 'bootstrap/dist/js/bootstrap'
 
 $(window).ready(function() {
     $('#imageHidden').hide();
+    $('#pills-tabContent').hide();
+
 
     if ($(this).width() >= 1280) {
         $("#navbar").addClass("fixed-top");
@@ -34,13 +36,21 @@ $('#collapseHidden').click(function(){
     $('#collapseHidden').hide();
     $('#imageHidden').show();
     $('#imageShow').hide();
-
+    $('#hidetext').hide();
+    $('#pills-tab').hide();
+    $('#pills-tabContent').hide();
 
 });
 $('#collapseShow').click(function(){
     $('#collapseHidden').show();
     $('#imageHidden').hide();
     $('#imageShow').show();
+    $('#hidetext').show();
+    $('#pills-tab').show();
+    $('#pills-tabContent').hide();
 
+});
+$('#pills-tab').click(function(){
+    $('#pills-tabContent').show();
 
 });
