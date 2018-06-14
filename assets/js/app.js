@@ -53,6 +53,8 @@ $('#collapseShow').click(function(){
     $('#hidetext').show();
     $('#pills-tab').show();
     $('#pills-tabContent').hide();
+    $('#fav').show();
+
 
 });
 $('#pills-tab').click(function(){
