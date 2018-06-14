@@ -79,3 +79,22 @@ h1, h2, h3, h4, h5, h6 {
 .card {
   background-color: transparent;
 }
+.card-body{
+  text-align: justify;
+}
+
+///////////
+//MediaQuery
+//////////
+@media (max-width: 1200px) {
+
+  body{
+    padding-top: 10px;
+  }
+}
+@media (min-width: 1150px) {
+
+  body{
+    padding-top: 120px;
+  }
+}
