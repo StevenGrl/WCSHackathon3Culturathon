@@ -39,5 +39,6 @@ class TechFixtures extends Fixture
         $manager->persist($modelage);
 
         $manager->flush();
+
     }
 }

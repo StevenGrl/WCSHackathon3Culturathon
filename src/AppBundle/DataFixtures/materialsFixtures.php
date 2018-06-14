@@ -32,5 +32,6 @@ class materialsFixtures extends Fixture
         $manager->persist($bronze);
 
         $manager->flush();
+        
     }
 }

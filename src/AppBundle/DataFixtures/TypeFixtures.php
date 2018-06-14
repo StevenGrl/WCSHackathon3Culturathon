@@ -36,5 +36,6 @@ class TypeFixtures extends Fixture
         $manager->persist($objet);
 
         $manager->flush();
+
     }
 }
