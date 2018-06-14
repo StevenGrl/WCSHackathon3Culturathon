@@ -14,6 +14,8 @@
                 <th>Coordy</th>
                 <th>Date</th>
                 <th>Enigma</th>
+                <th>Sizeh</th>
+                <th>Sizew</th>
                 <th>Answer</th>
                 <th>Actions</th>
             </tr>
@@ -29,14 +31,16 @@
                 <td>{{ artWork.coordY }}</td>
                 <td>{% if artWork.date %}{{ artWork.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ artWork.enigma }}</td>
+                <td>{{ artWork.sizeH }}</td>
+                <td>{{ artWork.sizeW }}</td>
                 <td>{{ artWork.answer }}</td>
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('artwork_show', { 'id': artWork.id }) }}"  class="btn btn-primary">show</a>
+                            <a href="{{ path('artwork_show', { 'id': artWork.id }) }}"   class="btn btn-primary">show</a>
                         </li>
                         <li>
-                            <a href="{{ path('artwork_edit', { 'id': artWork.id }) }}"  class="btn btn-primary">edit</a>
+                            <a href="{{ path('artwork_edit', { 'id': artWork.id }) }}"   class="btn btn-primary">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -47,7 +51,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('artwork_new') }}"  class="btn btn-primary">Create a new artWork</a>
+            <a href="{{ path('artwork_new') }}"   class="btn btn-primary">Create a new artWork</a>
         </li>
     </ul>
 {% endblock %}

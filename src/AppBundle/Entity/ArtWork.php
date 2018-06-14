@@ -76,7 +76,16 @@ class ArtWork
      * @ORM\Column(name="enigma", type="text")
      */
     private $enigma;
-
+    /**
+     * @var float
+     * @ORM\Column(name="size_h", type="float")
+     */
+    private $sizeH;
+    /**
+     * @var float
+     * @ORM\Column(name="size_w", type="float")
+     */
+    private $sizeW;
     /**
      * @var string
      *
@@ -95,6 +104,20 @@ class ArtWork
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Materials", inversedBy="artWorks")
      */
     private $materials;
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Room", inversedBy="artWorks")
+     */
+    private $room;
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Museum", inversedBy="artWorks")
+     */
+    private $museum;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Paint", inversedBy="artWorks")
+     */
+    private $paint;
+
     /**
      * Get id
      *
@@ -370,6 +393,18 @@ class ArtWork
     }
 
     /**
+     * Set room
+     *
+     * @param \AppBundle\Entity\Room $room
+     *
+     * @return ArtWork
+     */
+    public function setRoom(\AppBundle\Entity\Room $room = null)
+    {
+        $this->room = $room;
+    }
+
+    /**
      * Set longDescription
      *
      * @param string $longDescription
@@ -381,6 +416,112 @@ class ArtWork
         $this->long_description = $longDescription;
 
         return $this;
+    }
+
+    /**
+     * Get room
+     *
+     * @return \AppBundle\Entity\Room
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+
+    /**
+     * Set museum
+     *
+     * @param \AppBundle\Entity\Museum $museum
+     *
+     * @return ArtWork
+     */
+    public function setMuseum(\AppBundle\Entity\Museum $museum = null)
+    {
+        $this->museum = $museum;
+
+        return $this;
+    }
+
+    /**
+     * Get museum
+     *
+     * @return \AppBundle\Entity\Museum
+     */
+    public function getMuseum()
+    {
+        return $this->museum;
+    }
+
+    /**
+     * Set paint
+     *
+     * @param \AppBundle\Entity\Paint $paint
+     *
+     * @return ArtWork
+     */
+    public function setPaint(\AppBundle\Entity\Paint $paint = null)
+    {
+        $this->paint = $paint;
+
+        return $this;
+    }
+
+    /**
+     * Get paint
+     *
+     * @return \AppBundle\Entity\Paint
+     */
+    public function getPaint()
+    {
+        return $this->paint;
+    }
+
+    /**
+     * Set sizeH
+     *
+     * @param float $sizeH
+     *
+     * @return ArtWork
+     */
+    public function setSizeH($sizeH)
+    {
+        $this->sizeH = $sizeH;
+
+        return $this;
+    }
+
+    /**
+     * Get sizeH
+     *
+     * @return float
+     */
+    public function getSizeH()
+    {
+        return $this->sizeH;
+    }
+
+    /**
+     * Set sizeW
+     *
+     * @param float $sizeW
+     *
+     * @return ArtWork
+     */
+    public function setSizeW($sizeW)
+    {
+        $this->sizeW = $sizeW;
+
+        return $this;
+    }
+
+    /**
+     * Get sizeW
+     *
+     * @return float
+     */
+    public function getSizeW()
+    {
+        return $this->sizeW;
     }
 
     /**

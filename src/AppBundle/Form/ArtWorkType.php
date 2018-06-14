@@ -3,12 +3,14 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\Materials;
+use AppBundle\Entity\Museum;
+use AppBundle\Entity\Paint;
+use AppBundle\Entity\Room;
 use AppBundle\Entity\Tech;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Tests\Fixtures\Type;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ArtWorkType extends AbstractType
@@ -39,7 +41,18 @@ class ArtWorkType extends AbstractType
                 'choice_label' => 'name'))
             ->add('materials', EntityType::class, array(
                 'class' => Materials::class,
-                'choice_label' => 'name'));
+                'choice_label' => 'name'))
+            ->add('museum', EntityType::class, array(
+                'class' => Museum::class,
+                'choice_label' => 'name'))
+            ->add('room', EntityType::class, array(
+                'class' => Room::class,
+                'choice_label' => 'name'))
+            ->add('paint', EntityType::class, array(
+                'class' => Paint::class,
+                'choice_label' => 'name'))
+            ->add('sizeH')
+            ->add('sizeW');
     }
 
     /**
