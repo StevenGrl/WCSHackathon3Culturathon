@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\ArtWork;
+use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -132,5 +133,24 @@ class ArtWorkController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * @param ArtWork $artWork
+     * @Route("fav/{id}", name="artwork_fav")
+     * @Method("GET")
+     */
+    public function favAction(ArtWork $artWork)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository('AppBundle:User')->findOneById(10);
+        $artWork->setUser($user);
+        $em->persist($artWork);
+        $em->flush();
+        $deleteForm = $this->createDeleteForm($artWork);
+        return $this->render('artwork/show.html.twig', array(
+            'artWork' => $artWork,
+            'delete_form' => $deleteForm->createView(),
+        ));
     }
 }

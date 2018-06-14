@@ -14,6 +14,11 @@ use FOS\UserBundle\Model\User as BaseUser;
 class User extends BaseUser
 {
     /**
+     * @var
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="user")
+     */
+    private $artWorks;
+    /**
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -98,5 +103,39 @@ class User extends BaseUser
     public function getFirstName()
     {
         return $this->firstName;
+    }
+
+    /**
+     * Add artWork
+     *
+     * @param \AppBundle\Entity\ArtWork $artWork
+     *
+     * @return User
+     */
+    public function addArtWork(\AppBundle\Entity\ArtWork $artWork)
+    {
+        $this->artWorks[] = $artWork;
+
+        return $this;
+    }
+
+    /**
+     * Remove artWork
+     *
+     * @param \AppBundle\Entity\ArtWork $artWork
+     */
+    public function removeArtWork(\AppBundle\Entity\ArtWork $artWork)
+    {
+        $this->artWorks->removeElement($artWork);
+    }
+
+    /**
+     * Get artWorks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArtWorks()
+    {
+        return $this->artWorks;
     }
 }
