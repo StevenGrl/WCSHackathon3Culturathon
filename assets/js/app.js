@@ -27,3 +27,11 @@ $(window).resize(function() {
         $("#drop_two").addClass("dropup").removeClass("dropdown");
     }
 });
+
+$('#collapseHidden').click(function(){
+    $('#collapseHidden').hide();
+});
+$('#collapseShow').click(function(){
+    $('#collapseHidden').show();
+
+});
