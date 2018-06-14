@@ -6,10 +6,8 @@
   text-align: center;
   mix-blend-mode: multiply;
   position: relative;
-}
-
-.tile:hover {
   box-shadow: 0px 0px 0.35px black;
+  z-index: 2;
 }
 
 .coords {
@@ -67,11 +65,12 @@
 }
 
 .map {
-  background-image: url('../images/bg.png');
+  //background-image: url('../images/bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1em;
   margin-top: 1em;
+  z-index: -1;
 }
 
 .navigation {
@@ -83,7 +82,6 @@
 }
 
 .infos {
-  background-image: url('../images/floor.png');
   width:100%;
   min-height:300px;
   margin-top:1em;
@@ -96,5 +94,18 @@ h2 {
 }
 
 .floor {
-  background-image: url('../images/floor.png');
+  background-image: url('../images/floor2.jpg');
+}
+
+.wall {
+  background-image: url('../images/wall.png');
+}
+
+.oeuvre {
+  background-image: url('../images/tableau.jpg');
+}
+
+.door {
+  background-image: url('../images/door.png');
+  background-color: lightgrey;
 }

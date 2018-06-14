@@ -2,8 +2,9 @@
 
     Encore
         .setOutputPath('web/build/')
-        .setPublicPath('/web')
+        .setPublicPath('/build')
         .addEntry('app', './assets/js/app.js')
+        .addEntry('moveFinder', './assets/js/moveFinder.js')
     	.addStyleEntry('style', './assets/scss/main.scss')
     	.addStyleEntry('map', './assets/scss/map.scss')
         .cleanupOutputBeforeBuild()

@@ -3,11 +3,29 @@
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('build/map.css') }}">
 {% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('build/moveFinder.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <h1>Map</h1>
+    <div id="message">
+    {% for label, messages in app.flashes %}
+        <div class="row">
+            <div class="col-sm-12">
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
     <div class="row">
         <div class="col-xs-10">
-            <div class="map">
+            <div id="map" class="map">
                 {% if map is empty %}
                     <div class="alert alert-warning">Woups ! Le museum a disparu ! :/</div>
                 {% endif %}
@@ -46,20 +64,28 @@
             <div class="navigation">
                 <h2>Navigation</h2>
                 <p class="text-center">
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'N'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="N"
+                       href="{{ path('moveDirection', {"direction": 'N'}) }}">
                         <i class="fas fa-chevron-up"></i> N
                     </a>
                 </p>
                 <p class="text-center">
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'W'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="W"
+                       href="{{ path('moveDirection', {"direction": 'W'}) }}">
                         <i class="fas fa-chevron-left"></i> W
                     </a>
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'E'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="E"
+                       href="{{ path('moveDirection', {"direction": 'E'}) }}">
                         E <i class="fas fa-chevron-right"></i>
                     </a>
                 </p>
                 <p class="text-center">
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'S'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="S"
+                       href="{{ path('moveDirection', {"direction": 'S'}) }}">
                         <i class="fas fa-chevron-down"></i> S
                     </a>
                 </p>

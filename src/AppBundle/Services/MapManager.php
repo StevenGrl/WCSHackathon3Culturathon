@@ -50,8 +50,8 @@ class MapManager
 
     public function checkTreasure(Finder $finder): bool
     {
-        $treasureIsland = $this->tileRepository->findOneByHasTreasure(1);
-        if ($treasureIsland->getCoordX() === $finder->getCoordX() and $treasureIsland->getCoordY() === $finder->getCoordY()) {
+        $treasureArtwork = $this->tileRepository->findOneByHasTreasure(1);
+        if ($treasureArtwork->getCoordX() === $finder->getCoordX() and $treasureArtwork->getCoordY() === $finder->getCoordY()) {
             return true;
         } else {
             return false;

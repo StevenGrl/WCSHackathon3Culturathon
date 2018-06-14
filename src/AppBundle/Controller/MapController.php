@@ -44,8 +44,8 @@ class MapController extends Controller
         // Reset boat Coord
         $finderManager = $this->getDoctrine()->getRepository(Finder::class);
         $finder = $finderManager->findOneByName('Sherlock');
-        $finder->setCoordX(4);
-        $finder->setCoordY(8);
+        $finder->setCoordX(3);
+        $finder->setCoordY(7);
 
         //Reset and put treasure on a random island
         $tileManager = $this->getDoctrine()->getRepository(Tile::class);

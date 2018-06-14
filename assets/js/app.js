@@ -1,4 +1,6 @@
-import $ from "jquery"
+import "jquery";
+
+global.$ = require('jquery');
 
 import 'bootstrap/dist/js/bootstrap'
 
