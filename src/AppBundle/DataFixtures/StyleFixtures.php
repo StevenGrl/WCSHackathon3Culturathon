@@ -17,18 +17,17 @@ class StyleFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $contemporain = new Style();
-        $contemporain->setName('contemporain');
-        $contemporain->setDescription('L’Homme de Vitruve de Léonard de Vinci est pour beaucoup le symbole de l\'évolution de la civilisation occidentale durant la Renaissance artistique.
+        $impressionnisme = new Style();
+        $impressionnisme->setName('impressionnisme');
+        $impressionnisme->setDescription('
+Impression, soleil levant (1872), toile de Claude Monet, qui a donné son nom à l\'impressionnisme.
+L’impressionnisme est un mouvement pictural né de l\'association d\'artistes de la seconde moitié du xixe siècle vivant en France. Fortement critiqué à ses débuts, ce mouvement se manifeste notamment de 1874 à 1886 par des expositions publiques à Paris, et marqua la rupture de l\'art moderne avec la peinture académique.
 
-Cornelis Aerentsz van der Dussen de Jan van Scorel, (vers 1535) peinture sur bois, Weiss Gallery, Londres.
-
-Dessin de cerveau dans le De humani corporis fabrica de André Vésale.
-La Renaissance est une période de l\'époque moderne associée à la redécouverte de la littérature, de la philosophie et des sciences de l\'Antiquité, qui a pour point de départ la Renaissance italienne. En effet, la Renaissance naquit à Florence (en Italie) grâce aux artistes qui pouvaient y exprimer librement leur art : une Pré-Renaissance se produisit dans plusieurs villes d\'Italie dès les xiiie et xive siècles (Duecento et Trecento), se propagea au xve siècle dans la plus grande partie de l\'Italie, en Espagne, dans certaines enclaves d\'Europe du Nord et d\'Allemagne, sous la forme de ce que l\'on appelle la Première Renaissance (Quattrocento), puis gagna l\'ensemble de l\'Europe au xvie siècle (Cinquecento). On parle de Renaissance artistique au sens où les œuvres de cette époque ne s\'inspirent plus du Moyen Âge mais de l\'art gréco-romain.');
-        $manager->persist($contemporain);
+Ce mouvement pictural est principalement caractérisé par des tableaux de petit format, des traits de pinceau visibles, la composition ouverte, l\'utilisation d\'angles de vue inhabituels, une tendance à noter les impressions fugitives, la mobilité des phénomènes climatiques et lumineux, plutôt que l\'aspect stable et conceptuel des choses, et à les reporter directement sur la toile. L\'impressionnisme eut une grande influence sur l\'art de cette époque, la peinture bien sûr, mais aussi les arts visuels (sculpture1, photographie impressionniste dont le pictorialisme est le relais, cinéma impressionniste), la littérature2 et la musique3.');
+        $manager->persist($impressionnisme);
 
         $manager->flush();
 
-        $this->addReference('contemporain', $contemporain);
+        $this->addReference('impressionnisme', $impressionnisme);
     }
 }
