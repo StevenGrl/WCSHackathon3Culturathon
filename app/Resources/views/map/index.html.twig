@@ -9,7 +9,7 @@
         <div class="col-xs-10">
             <div class="map">
                 {% if map is empty %}
-                    <div class="alert alert-warning">Woups ! La carte est vide :/</div>
+                    <div class="alert alert-warning">Woups ! Le museum a disparu ! :/</div>
                 {% endif %}
                 {% for y in 0..8 %}
                     <div class="row">
@@ -33,8 +33,14 @@
             <div class="infos">
                 <h2>Information</h2>
                 <p>
-                    <span class="blue">Tile type is : </span>
-                    {#<span class="red">{{ map[finder.coordX][finder.coordY].type }}</span>#}
+                    {% if oeuvre is defined %}
+
+                    <span class="blue">Cette oeuvre se nomme : {{ artWork.name }}</span>
+                    <span class="blue">C'est une pièce réalisée par le maître "{{ artWork.artiste }}"</span>
+                    <span class="blue">blabla-vide</span>
+                    <span class="blue">Pour en savoir plus, suivez le guide ! <a href="#" class="btn btn-primary"></a></span>
+
+                    {% endif %}
                 </p>
             </div>
             <div class="navigation">
