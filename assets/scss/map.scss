@@ -1,6 +1,6 @@
 .tile {
-  height:120px;
-  width:120px;
+  height: 80px;
+  width:80px;
   background-repeat: no-repeat;
   background-size: cover;
   text-align: center;
@@ -37,8 +37,8 @@
 }
 @media screen and (max-width: 1200px) {
   .tile {
-    height: 60px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
   }
 }
 
@@ -60,12 +60,12 @@
 }
 
 .finder {
+  width: 80%;
   animation: 3s linear myFinder 0s infinite alternate;
   filter: drop-shadow(3px 3px 5px #6d2c19);
 }
 
 .map {
-  //background-image: url('../images/bg.png');
   background-size: cover;
   background-repeat: no-repeat;
   padding: 1em;

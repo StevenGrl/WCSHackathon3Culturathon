@@ -44,8 +44,8 @@ class AppFixtures extends Fixture
         }
 
         $finder = new Finder();
-        $finder->setCoordX(4);
-        $finder->setCoordY(8);
+        $finder->setCoordX(3);
+        $finder->setCoordY(7);
         $finder->setName('Sherlock');
         $manager->persist($finder);
 

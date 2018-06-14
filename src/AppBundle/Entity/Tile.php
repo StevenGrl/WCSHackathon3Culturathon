@@ -56,6 +56,12 @@ class Tile
      */
     private $hasTreasure;
 
+    /**
+     * @ORM\OneToOne(targetEntity="ArtWork")
+     * @ORM\JoinColumn(name="artwork_id", referencedColumnName="id")
+     */
+    private $artwork;
+
 
     /**
      * Get id
@@ -189,5 +195,29 @@ class Tile
     public function getHasTreasure()
     {
         return $this->hasTreasure;
+    }
+
+    /**
+     * Set artwork
+     *
+     * @param \AppBundle\Entity\ArtWork $artwork
+     *
+     * @return Tile
+     */
+    public function setArtwork(\AppBundle\Entity\ArtWork $artwork = null)
+    {
+        $this->artwork = $artwork;
+
+        return $this;
+    }
+
+    /**
+     * Get artwork
+     *
+     * @return \AppBundle\Entity\ArtWork
+     */
+    public function getArtwork()
+    {
+        return $this->artwork;
     }
 }
