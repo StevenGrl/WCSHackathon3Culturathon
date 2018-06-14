@@ -51,7 +51,7 @@ Map
                                             <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                             <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
                                             {% if map[x][y].artwork.image is defined %}
-                                                <img class="img-responsive oeuvre"
+                                                <img class="oeuvre"
                                                      src="{{ asset('images/') }}{{ map[x][y].artwork.image }}"
                                                      alt="">
                                             {% endif %}
