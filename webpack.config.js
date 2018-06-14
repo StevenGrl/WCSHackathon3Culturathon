@@ -3,8 +3,9 @@
     Encore
         .setOutputPath('web/build/')
         .setPublicPath('/web')
-        .addEntry('app', './assets/js/app.js') 
-    	.addEntry('style', './assets/scss/main.scss')
+        .addEntry('app', './assets/js/app.js')
+    	.addStyleEntry('style', './assets/scss/main.scss')
+    	.addStyleEntry('map', './assets/scss/map.scss')
         .cleanupOutputBeforeBuild()
         .enableBuildNotifications()
         .enableSassLoader();
