@@ -1,10 +1,10 @@
 $(document).on('click', '.move', function (e) {
     e.preventDefault();
     let move = $(this).attr('data-move');
-    ajaxDirection(move)
-
+    ajaxDirection(direction);
 });
-function ajaxDirection(move){
+
+function ajaxDirection(move) {
     $.get('/finder/direction/' + move).done(function (result) {
         const alertResult = $(result).find('#messageFlash');
         $('#messageFlash').replaceWith(alertResult);
@@ -12,9 +12,10 @@ function ajaxDirection(move){
         $('#map').replaceWith(mapResult);
     });
 }
-document.addEventListener('keydown', function(e){
+
+document.addEventListener('keydown', function (e) {
     let direction = null;
-    switch (e.keyCode){
+    switch (e.keyCode) {
         case 37:
             direction = 'W';
             break;
@@ -31,4 +32,4 @@ document.addEventListener('keydown', function(e){
             return;
     }
     ajaxDirection(direction);
- })
+});

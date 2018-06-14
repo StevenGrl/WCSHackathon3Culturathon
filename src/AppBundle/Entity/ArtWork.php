@@ -36,6 +36,14 @@ class ArtWork
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     * @ORM\JoinColumn(nullable=true)
+     */
+    private $image;
+
+    /**
      * @var int
      *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Artist", inversedBy="artWorks")
      */
@@ -715,5 +723,29 @@ class ArtWork
     public function getStyle()
     {
         return $this->style;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return ArtWork
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -11,13 +11,23 @@
 Map
 {% endblock %}
 {% block body %}
-    <div class="question">
+    <div class="question mt-5">
         {% if question is defined %}
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
                 <div class="alert alert-info">
-                    {{ message }}
+                    {{ question }}
                 </div>
+            </div>
+            <div class="col-sm-6">
+                {{ form_start(form) }}
+                <div class="col-sm-4">
+                    {{ form_row(form.answer, {'label': 'Réponse:'}) }}
+                </div>
+                <div class="col-sm-2">
+                    <button role="button" type="submit" class="btn btn-warning">Valider</button>
+                </div>
+                {{ form_end(form) }}
             </div>
         </div>
         {% endif %}
