@@ -1,7 +1,8 @@
-$(document).on('click', '.moveUp', function (e) {
+$(document).on('click', '.move', function (e) {
     e.preventDefault();
-    const finder = $(this);
-    $.post('/direction', {direction: 'N'}).done(function (finder) {
-        finder.html(finder);
+    let move = $(this).attr('data-move');
+    $.get('/finder/direction/' + move).done(function (result) {
+       const mapResult = $(result).find('.map');
+       $('.map').replaceWith(mapResult);
     });
 });

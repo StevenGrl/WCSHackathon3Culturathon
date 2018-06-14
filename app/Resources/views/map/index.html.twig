@@ -56,20 +56,28 @@
             <div class="navigation">
                 <h2>Navigation</h2>
                 <p class="text-center">
-                    <a class="btn btn-primary moveUp" href="{{ path('moveDirection', {"direction": 'N'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="N"
+                       href="{{ path('moveDirection', {"direction": 'N'}) }}">
                         <i class="fas fa-chevron-up"></i> N
                     </a>
                 </p>
                 <p class="text-center">
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'W'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="W"
+                       href="{{ path('moveDirection', {"direction": 'W'}) }}">
                         <i class="fas fa-chevron-left"></i> W
                     </a>
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'E'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="E"
+                       href="{{ path('moveDirection', {"direction": 'E'}) }}">
                         E <i class="fas fa-chevron-right"></i>
                     </a>
                 </p>
                 <p class="text-center">
-                    <a class="btn btn-primary" href="{{ path('moveDirection', {"direction": 'S'}) }}">
+                    <a class="btn btn-primary move"
+                       data-move="S"
+                       href="{{ path('moveDirection', {"direction": 'S'}) }}">
                         <i class="fas fa-chevron-down"></i> S
                     </a>
                 </p>
