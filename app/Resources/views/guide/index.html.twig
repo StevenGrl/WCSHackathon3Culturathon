@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Guides list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Coordx</th>
+                <th>Coordy</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for guide in guides %}
+            <tr>
+                <td><a href="{{ path('guide_show', { 'id': guide.id }) }}">{{ guide.id }}</a></td>
+                <td>{{ guide.name }}</td>
+                <td>{{ guide.coordX }}</td>
+                <td>{{ guide.coordY }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('guide_show', { 'id': guide.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('guide_edit', { 'id': guide.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('guide_new') }}">Create a new guide</a>
+        </li>
+    </ul>
+{% endblock %}

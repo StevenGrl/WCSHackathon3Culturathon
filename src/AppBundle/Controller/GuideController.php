@@ -2,32 +2,33 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\Finder;
+use AppBundle\Entity\Guide;
 use AppBundle\Entity\Tile;
 use AppBundle\Services\MapManager;
-use AppBundle\Traits\FinderTrait;
+use AppBundle\Traits\GuideTrait;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Finder controller.
+ * Guide controller.
  *
- * @Route("finder")
+ * @Route("guide")
  */
-class FinderController extends Controller
+class GuideController extends Controller
 {
-    use FinderTrait;
+
+    use GuideTrait;
 
     /**
      * @param string $direction
-     * @Route("/direction/{direction}", name="moveDirection")
+     * @Route("/direction/{direction}", name="moveDirectionGuide")
      */
-    public function moveDirection(string $direction)
+    public function moveDirectionGuide(string $direction)
     {
         $em = $this->getDoctrine()->getManager();
-        $finder = $this->getFinder();
+        $finder = $this->getGuide();
         $y = $finder->getCoordY();
         $x = $finder->getCoordX();
         if ($direction === "N" || $direction === "S") {
@@ -50,131 +51,128 @@ class FinderController extends Controller
             $finder->setCoordY($y);
             $finder->setCoordX($x);
             $em->flush();
-            $checkTreasure = $mapManager->checkTreasure($finder);
-            if ($checkTreasure) {
-                $this->addFlash('success', 'Tu as trouvé le trésor bravo à toi mon grand :) !');
-            }
         } else {
-            $this->addFlash('danger', 'Oula ! Si tu fais ça tu vas sauter par la fenêtre !');
+            $this->addFlash('danger', "TU NE PASSERA PAS !");
         }
-        return $this->redirectToRoute('map');
+        return $this->redirectToRoute('visite');
     }
 
     /**
-     * Lists all finder entities.
+     * Lists all guide entities.
      *
-     * @Route("/", name="finder_index")
+     * @Route("/", name="guide_index")
      * @Method("GET")
      */
+
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $finders = $em->getRepository('AppBundle:Finder')->findAll();
+        $guides = $em->getRepository('AppBundle:Guide')->findAll();
 
-        return $this->render('finder/index.html.twig', array(
-            'finders' => $finders,
+        return $this->render('guide/index.html.twig', array(
+            'guides' => $guides,
         ));
     }
 
     /**
-     * Creates a new finder entity.
+     * Creates a new guide entity.
      *
-     * @Route("/new", name="finder_new")
+     * @Route("/new", name="guide_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
-        $finder = new Finder();
-        $form = $this->createForm('AppBundle\Form\FinderType', $finder);
+        $guide = new Guide();
+        $form = $this->createForm('AppBundle\Form\GuideType', $guide);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($finder);
+            $em->persist($guide);
             $em->flush();
 
-            return $this->redirectToRoute('finder_show', array('id' => $finder->getId()));
+            return $this->redirectToRoute('guide_show', array('id' => $guide->getId()));
         }
 
-        return $this->render('finder/new.html.twig', array(
-            'finder' => $finder,
+        return $this->render('guide/new.html.twig', array(
+            'guide' => $guide,
             'form' => $form->createView(),
         ));
     }
 
     /**
-     * Finds and displays a finder entity.
+     * Finds and displays a guide entity.
      *
-     * @Route("/{id}", name="finder_show")
+     * @Route("/{id}", name="guide_show")
      * @Method("GET")
      */
-    public function showAction(Finder $finder)
+    public function showAction(Guide $guide)
     {
-        $deleteForm = $this->createDeleteForm($finder);
+        $deleteForm = $this->createDeleteForm($guide);
 
-        return $this->render('finder/show.html.twig', array(
-            'finder' => $finder,
+        return $this->render('guide/show.html.twig', array(
+            'guide' => $guide,
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Displays a form to edit an existing finder entity.
+     * Displays a form to edit an existing guide entity.
      *
-     * @Route("/{id}/edit", name="finder_edit")
+     * @Route("/{id}/edit", name="guide_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Finder $finder)
+    public function editAction(Request $request, Guide $guide)
     {
-        $deleteForm = $this->createDeleteForm($finder);
-        $editForm = $this->createForm('AppBundle\Form\FinderType', $finder);
+        $deleteForm = $this->createDeleteForm($guide);
+        $editForm = $this->createForm('AppBundle\Form\GuideType', $guide);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('finder_edit', array('id' => $finder->getId()));
+            return $this->redirectToRoute('guide_edit', array('id' => $guide->getId()));
         }
 
-        return $this->render('finder/edit.html.twig', array(
-            'finder' => $finder,
+        return $this->render('guide/edit.html.twig', array(
+            'guide' => $guide,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Deletes a finder entity.
+     * Deletes a guide entity.
      *
-     * @Route("/{id}", name="finder_delete")
+     * @Route("/{id}", name="guide_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, Finder $finder)
+    public function deleteAction(Request $request, Guide $guide)
     {
-        $form = $this->createDeleteForm($finder);
+        $form = $this->createDeleteForm($guide);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($finder);
+            $em->remove($guide);
             $em->flush();
         }
 
-        return $this->redirectToRoute('finder_index');
+        return $this->redirectToRoute('guide_index');
     }
 
     /**
-     * Creates a form to delete a finder entity.
+     * Creates a form to delete a guide entity.
      *
-     * @param Finder $finder The finder entity
+     * @param Guide $guide The guide entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(Finder $finder)
+    private function createDeleteForm(Guide $guide)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('finder_delete', array('id' => $finder->getId())))
+            ->setAction($this->generateUrl('guide_delete', array('id' => $guide->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
