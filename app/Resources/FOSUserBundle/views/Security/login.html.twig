@@ -1,11 +1,13 @@
 {% extends "base.html.twig" %}
 {% trans_default_domain 'FOSUserBundle' %}
+{% block page_title %}
+    Connexion
+{% endblock %}
 {% block body %}
     {% block fos_user_content %}
         <div class="container pt-0 pt-md-3 pt-lg-5">
 
             <div class="formLogin">
-                <p>Connexion</p>
                 {% if error %}
                     <div class="alert alert-danger"
                          role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
