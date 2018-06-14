@@ -54,20 +54,19 @@
                 <!-- Bouton "Voir plus" -->
                 <div class="col-xs-12 col-lg-10">
                     <p class="resume mt-lg-5" id="hidetext">{{ artWork.longdescription }}</p>
-                    <div class="d-sm-block d-none"><a class="btn btn-primary" data-toggle="collapse"
-                                                      href="#collapseExample"
-                                                      role="button"
-                                                      aria-expanded="false" aria-controls="collapseExample"
-                                                      id="collapseHidden">
-                            Agrandir l'image ! </a>
+                    <div class="d-sm-block d-none">
+                        <a class="btn btn-primary" data-toggle="collapse"
+                           href="#collapseExample"
+                           role="button"
+                           aria-expanded="false" aria-controls="collapseExample"
+                           id="collapseHidden"> Agrandir l'image ! </a>
                     </div>
                 </div>
                 <div>
                     <div class="collapse" id="collapseExample">
                         <button class="btn btn-primary" type="button" data-toggle="collapse"
                                 data-target="#collapseExample"
-                                aria-expanded="false" aria-controls="collapseExample" id="collapseShow">
-                            Revenir !
+                                aria-expanded="false" aria-controls="collapseExample" id="collapseShow"> Revenir !
                         </button>
 
                         <img class="objeFit w-75"
@@ -77,8 +76,6 @@
                     </div>
                 </div>
                 </p>
-
-
                 {% set thisArtwork = 0 %}
                 {% set idFavorite = "" %}
                 {% for favorite in favorites %}
@@ -90,7 +87,7 @@
                     {% endif %}
                 {% endfor %}
                 {% if thisArtwork == 0 %}
-                    <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="btn btn-primary">
+                    <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="btn btn-primary" id="fav">
                         <i class="far fa-heart"></i> Mettre l'oeuvre en favoris</a>
                 {% else %}
                     <a href="{{ path('artwork_defav', { id : idFavorite } ) }}" class="btn btn-primary">
