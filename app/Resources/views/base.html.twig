@@ -65,8 +65,15 @@
                 <a class="nav-link" href="{{ path('concept') }}">concept</a>
             </li>
             <li class="nav-item align-self-center mx-auto">
-                <a class="nav-link" href="{{ path('fos_user_security_login') }}">login</a>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('fos_user_security_logout') }}" class="nav-link">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="nav-link">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
             </li>
+
         </ul>
     </div>
 </nav>
