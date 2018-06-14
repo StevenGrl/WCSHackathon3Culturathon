@@ -23,6 +23,7 @@ class ArtWorkFixtures extends Fixture implements DependentFixtureInterface
         $artOne->setTech($this->getReference('pinceau'));
         $artOne->setMaterials($this->getReference('toile'));
         $artOne->setPaint($this->getReference('acrylique'));
+        $artOne->setTime($this->getReference('contemporain'));
         $artOne->setName("Cable Car");
         $artOne->setArtist($this->getReference('mnp'));
         $artOne->setDescription("Représentation du pont de Brooklyn.");

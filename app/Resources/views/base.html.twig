@@ -20,7 +20,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">Artiste</a>
             <a class="dropdown-item" href="#">Style</a>
-            <a class="dropdown-item" href="#">Epoque</a>
+            <a class="dropdown-item" href="{{ path( 'time_show', { id : artWork.time.id }) }}">Epoque</a>
         </div>
     </div>
     {% endif %}
@@ -28,7 +28,7 @@
         <a class="navbar-brand nav-item text-light"
            href="#">
             {% if artWork is defined %}
-                {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist }}
+                {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist.name }}
             {% else %}
                 {%  block page_title %}
                 {% endblock %}

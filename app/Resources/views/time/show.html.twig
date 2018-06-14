@@ -1,36 +1,9 @@
 {% extends 'base.html.twig' %}
-
+{% block page_title %}
+    Epoque {{ time.period }}
+{% endblock %}
 {% block body %}
-    <h1>Time</h1>
+                {{ time.description }}
+            <a class="btn btn-warning" href="/">retour</a>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ time.id }}</td>
-            </tr>
-            <tr>
-                <th>Period</th>
-                <td>{{ time.period }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ time.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('time_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('time_edit', { 'id': time.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}

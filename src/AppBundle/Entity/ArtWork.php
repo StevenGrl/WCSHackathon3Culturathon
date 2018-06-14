@@ -22,6 +22,13 @@ class ArtWork
     private $id;
 
     /**
+     * @var
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Time", inversedBy="times")
+     */
+    private $time;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="name", type="string", length=255)
@@ -656,5 +663,29 @@ class ArtWork
     public function removeOeuvre(\AppBundle\Entity\Favorite $oeuvre)
     {
         $this->oeuvres->removeElement($oeuvre);
+    }
+
+    /**
+     * Set time
+     *
+     * @param \AppBundle\Entity\Time $time
+     *
+     * @return ArtWork
+     */
+    public function setTime(\AppBundle\Entity\Time $time = null)
+    {
+        $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * Get time
+     *
+     * @return \AppBundle\Entity\Time
+     */
+    public function getTime()
+    {
+        return $this->time;
     }
 }
