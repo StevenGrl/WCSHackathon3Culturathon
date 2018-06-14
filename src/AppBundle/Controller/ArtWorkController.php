@@ -68,11 +68,15 @@ class ArtWorkController extends Controller
      */
     public function showAction(ArtWork $artWork)
     {
+        $em = $this->getDoctrine()->getManager();
+
         $deleteForm = $this->createDeleteForm($artWork);
+        $favorite2 = $em->getRepository('AppBundle:Favorite')->findAll();
 
         return $this->render('artwork/show.html.twig', array(
             'artWork' => $artWork,
             'delete_form' => $deleteForm->createView(),
+            'favorites' => $favorite2,
         ));
     }
 
@@ -152,10 +156,23 @@ class ArtWorkController extends Controller
         $favorite->setFavourite(1);
         $em->persist($favorite);
         $em->flush();
-        return $this->render('artwork/show.html.twig', array(
-            'artWork' => $artWork,
-        ));
+        return $this->redirectToRoute('artwork_show', array('id' => $artWork->getId()));
+
     }
 
+    /**
+     * @param Favorite $favorite
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/defav/{id}", name="artwork_defav")
+     * @Method("GET")
+     */
+    public function delfavAction(Favorite $favorite)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $favorite->setFavourite(0);
+        $em->flush();
+        return $this->redirectToRoute('artwork_show', array('id' => $favorite->getOeuvre()->getId()));
+
+    }
 
 }

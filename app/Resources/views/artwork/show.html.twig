@@ -1,87 +1,103 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
     <div class="container">
         <div class="row text-center">
             <div class="col-xs-10">
                 <!-- Bouton "painting" -->
                 <div class="d-none d-lg-block">
-                <ul class="nav nav-pills mb-3 center-pills" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                           aria-controls="pills-home" aria-selected="false"><i
-                                    class="fas fa-clone"></i> {{ artWork.type.name }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                           aria-controls="pills-profile" aria-selected="false"><i
-                                    class="fas fa-pencil-alt"></i> {{ artWork.tech.name }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                           aria-controls="pills-contact" aria-selected="false"><i
-                                    class="fas fa-leaf"></i> {{ artWork.materials.name }}</a>
-                    </li>
-                    <li class="nav-item">
-                        {#{% if artWork.user.id is defined %}#}
-                            <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="nav-link"
-                               aria-controls="pills-contact" aria-selected="false"><i class="far fa-star "></i>Mettre l'oeuvre en favoris</a>
-                        {#{% else %}#}
-                            {#<a href="#" class="nav-link"#}
-                               {#aria-controls="pills-contact" aria-selected="false"><i class="far fa-star selectedPills"></i>   Oeuvre en favoris!</a>#}
-                        {#{% endif %}#}
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        YOUHOU
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                GABOU
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        BOUGA
+                    <ul class="nav nav-pills mb-3 center-pills" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                               aria-controls="pills-home" aria-selected="false"><i
+                                        class="fas fa-clone"></i> {{ artWork.type.name }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                               role="tab"
+                               aria-controls="pills-profile" aria-selected="false"><i
+                                        class="fas fa-pencil-alt"></i> {{ artWork.tech.name }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact"
+                               role="tab"
+                               aria-controls="pills-contact" aria-selected="false"><i
+                                        class="fas fa-leaf"></i> {{ artWork.materials.name }}</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                             aria-labelledby="pills-home-tab">
+                            YOUHOU
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                             aria-labelledby="pills-profile-tab">
+                            GABOU
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                             aria-labelledby="pills-contact-tab">
+                            BOUGA
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
 
-            <div class="col-lg-2 py-5 col-md-12">
-                <img class="w-100"
-                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg"
-                     id="imageShow">
-            </div>
+            <div class="row">
 
-            <!-- Bouton "Voir plus" -->
-            <div class="col-xs-12 col-lg-10">
-                <p class="resume mt-lg-5" id="hidetext">{{ artWork.longdescription }}</p>
-                <div class="d-sm-block d-none"><a class="btn btn-primary" data-toggle="collapse"
-                                                  href="#collapseExample"
-                                                  role="button"
-                                                  aria-expanded="false" aria-controls="collapseExample"
-                                                  id="collapseHidden">
-                        Agrandir l'image ! </a>
-                </div>
-            </div>
-            <div>
-                <div class="collapse" id="collapseExample">
-                    <button class="btn btn-primary" type="button" data-toggle="collapse"
-                            data-target="#collapseExample"
-                            aria-expanded="false" aria-controls="collapseExample" id="collapseShow">
-                        Revenir !
-                    </button>
-
-                    <img class="objeFit w-75"
+                <div class="col-lg-2 py-5 col-md-12">
+                    <img class="w-100"
                          src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg"
-                         id="imageHidden">
-
+                         id="imageShow">
                 </div>
+
+                <!-- Bouton "Voir plus" -->
+                <div class="col-xs-12 col-lg-10">
+                    <p class="resume mt-lg-5" id="hidetext">{{ artWork.longdescription }}</p>
+                    <div class="d-sm-block d-none"><a class="btn btn-primary" data-toggle="collapse"
+                                                      href="#collapseExample"
+                                                      role="button"
+                                                      aria-expanded="false" aria-controls="collapseExample"
+                                                      id="collapseHidden">
+                            Agrandir l'image ! </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="collapse" id="collapseExample">
+                        <button class="btn btn-primary" type="button" data-toggle="collapse"
+                                data-target="#collapseExample"
+                                aria-expanded="false" aria-controls="collapseExample" id="collapseShow">
+                            Revenir !
+                        </button>
+
+                        <img class="objeFit w-75"
+                             src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg"
+                             id="imageHidden">
+
+                    </div>
+                </div>
+                </p>
+
+
+                {% set thisArtwork = 0 %}
+                {% set idFavorite = "" %}
+                {% for favorite in favorites %}
+                    {% if favorite.oeuvre.id == artWork.id %}
+                        {% if favorite.favourite == 1 %}
+                            {% set thisArtwork = 1 %}
+                            {% set idFavorite = favorite.id %}
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if thisArtwork == 0 %}
+                    <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="btn btn-primary">
+                        <i class="far fa-heart"></i> Mettre l'oeuvre en favoris</a>
+                {% else %}
+                    <a href="{{ path('artwork_defav', { id : idFavorite } ) }}" class="btn btn-primary">
+                        <i class="fas fa-heart selectedPills"></i> Oeuvre en favoris!</a>
+                {% endif %}
             </div>
-            </p>
         </div>
-    </div>
     </div>
 
 {% endblock %}
