@@ -35,7 +35,11 @@ class Style
      */
     private $description;
 
-
+    /**
+     * @var int
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="style")
+     */
+    private $artWorks;
     /**
      * Get id
      *
@@ -92,5 +96,46 @@ class Style
     public function getDescription()
     {
         return $this->description;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->artWorks = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add artWork
+     *
+     * @param \AppBundle\Entity\ArtWork $artWork
+     *
+     * @return Style
+     */
+    public function addArtWork(\AppBundle\Entity\ArtWork $artWork)
+    {
+        $this->artWorks[] = $artWork;
+
+        return $this;
+    }
+
+    /**
+     * Remove artWork
+     *
+     * @param \AppBundle\Entity\ArtWork $artWork
+     */
+    public function removeArtWork(\AppBundle\Entity\ArtWork $artWork)
+    {
+        $this->artWorks->removeElement($artWork);
+    }
+
+    /**
+     * Get artWorks
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArtWorks()
+    {
+        return $this->artWorks;
     }
 }

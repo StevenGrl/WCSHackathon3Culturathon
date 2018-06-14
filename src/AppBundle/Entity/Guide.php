@@ -125,4 +125,3 @@ class Guide
         return $this->coordY;
     }
 }
-

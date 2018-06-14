@@ -18,9 +18,9 @@
             Menu de l'oeuvre
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Artiste</a>
-            <a class="dropdown-item" href="#">Style</a>
-            <a class="dropdown-item" href="#">Epoque</a>
+            <a class="dropdown-item" href="{{ path('artist_show', { id : artWork.artist.id}) }}">Artiste</a>
+            <a class="dropdown-item" href="{{ path('style_show', { id : artWork.style.id}) }}">Style</a>
+            <a class="dropdown-item">Epoque</a>
         </div>
     </div>
     {% endif %}

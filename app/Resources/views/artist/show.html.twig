@@ -1,32 +1,8 @@
 {% extends 'base.html.twig' %}
-
+{%  block page_title %}
+    {{ artist.name }}
+{% endblock %}
 {% block body %}
-    <h1>Artist</h1>
+    <p class="m-5">{{ artist.description }}</p>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ artist.id }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ artist.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('artist_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('artist_edit', { 'id': artist.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
 {% endblock %}
