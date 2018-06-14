@@ -40,5 +40,11 @@ class TechFixtures extends Fixture
 
         $manager->flush();
 
+        $this->addReference('couteau', $couteau);
+        $this->addReference('pinceau', $pinceau);
+        $this->addReference('numerique', $numerique);
+        $this->addReference('argentique', $argentique);
+        $this->addReference('taille', $taille);
+        $this->addReference('modelage', $modelage);
     }
 }
