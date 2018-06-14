@@ -119,6 +119,12 @@ class ArtWork
     private $paint;
 
     /**
+     * @ORM\OneToOne(targetEntity="Tile")
+     * @ORM\JoinColumn(name="tile_id", referencedColumnName="id")
+     */
+    private $tile;
+
+    /**
      * Get id
      *
      * @return int
@@ -532,5 +538,29 @@ class ArtWork
     public function getLongDescription()
     {
         return $this->long_description;
+    }
+
+    /**
+     * Set tile
+     *
+     * @param \AppBundle\Entity\Tile $tile
+     *
+     * @return ArtWork
+     */
+    public function setTile(\AppBundle\Entity\Tile $tile = null)
+    {
+        $this->tile = $tile;
+
+        return $this;
+    }
+
+    /**
+     * Get tile
+     *
+     * @return \AppBundle\Entity\Tile
+     */
+    public function getTile()
+    {
+        return $this->tile;
     }
 }
