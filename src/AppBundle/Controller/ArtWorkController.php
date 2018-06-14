@@ -137,20 +137,19 @@ class ArtWorkController extends Controller
 
     /**
      * @param ArtWork $artWork
-     * @Route("fav/{id}", name="artwork_fav")
+     * @Route("/fav/{id}", name="artwork_fav")
      * @Method("GET")
      */
     public function favAction(ArtWork $artWork)
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository('AppBundle:User')->findOneById(10);
-        $artWork->setUser($user);
+        $artWork->setUser($this->getUser());
         $em->persist($artWork);
         $em->flush();
-        $deleteForm = $this->createDeleteForm($artWork);
         return $this->render('artwork/show.html.twig', array(
             'artWork' => $artWork,
-            'delete_form' => $deleteForm->createView(),
         ));
     }
+
+
 }
