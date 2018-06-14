@@ -11,6 +11,17 @@
 Map
 {% endblock %}
 {% block body %}
+    <div class="question">
+        {% if question is defined %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="alert alert-info">
+                    {{ message }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
     <div id="messageFlash">
     {% for label, messages in app.flashes %}
         <div class="row">
@@ -50,47 +61,45 @@ Map
         </div>
     </div>
     <div class="row">
-        <div class="col-12">
-            <div class="infos d-inline-block col-6">
-                <h2>Information</h2>
-                <p>
-                    {% if oeuvre is defined %}
-                    <span class="blue">Cette oeuvre se nomme : {{ artWork.name }}</span>
-                    <span class="blue">C'est une pièce réalisée par le maître "{{ artWork.artiste }}"</span>
-                    <span class="blue">blabla-vide</span>
-                    <span class="blue">Pour en savoir plus, suivez le guide ! <a href="#" class="btn btn-primary"></a></span>
-                    {% endif %}
-                </p>
-            </div>
-            <div class="navigation d-inline-block col-5">
-                <h2>Navigation</h2>
-                <p class="text-center">
-                    <a class="btn btn-primary move"
-                       data-move="N"
-                       href="{{ path('moveDirection', {"direction": 'N'}) }}">
-                        <i class="fas fa-chevron-up"></i>
-                    </a>
-                </p>
-                <p class="text-center">
-                    <a class="btn btn-primary move"
-                       data-move="W"
-                       href="{{ path('moveDirection', {"direction": 'W'}) }}">
-                        <i class="fas fa-chevron-left"></i>
-                    </a>
-                    <a class="btn btn-primary move"
-                       data-move="E"
-                       href="{{ path('moveDirection', {"direction": 'E'}) }}">
-                        <i class="fas fa-chevron-right"></i>
-                    </a>
-                </p>
-                <p class="text-center">
-                    <a class="btn btn-primary move"
-                       data-move="S"
-                       href="{{ path('moveDirection', {"direction": 'S'}) }}">
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
-                </p>
-            </div>
+        <div class="infos col-5">
+            <h2>Informations</h2>
+            <p>
+                {% if artwork is defined %}
+                <span class="blue">Cette oeuvre se nomme : {{ artwork.name }}</span>
+                <span class="blue">C'est une pièce réalisée par le maître "{{ artwork.artiste }}"</span>
+                <span class="blue"></span>
+                <span class="blue">Pour en savoir plus, suivez le guide ! <a href="#" class="btn btn-primary"></a></span>
+                {% endif %}
+            </p>
+        </div>
+        <div class="navigation offset-1 col-5">
+            <h2 class="text-center">Navigation</h2>
+            <p class="text-center">
+                <a class="btn btn-warning move"
+                   data-move="N"
+                   href="{{ path('moveDirection', {"direction": 'N'}) }}">
+                    <i class="fas fa-chevron-up"></i>
+                </a>
+            </p>
+            <p class="text-center">
+                <a class="btn btn-warning move"
+                   data-move="W"
+                   href="{{ path('moveDirection', {"direction": 'W'}) }}">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+                <a class="btn btn-warning move"
+                   data-move="E"
+                   href="{{ path('moveDirection', {"direction": 'E'}) }}">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </p>
+            <p class="text-center">
+                <a class="btn btn-warning move"
+                   data-move="S"
+                   href="{{ path('moveDirection', {"direction": 'S'}) }}">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+            </p>
         </div>
     </div>
 {% endblock %}
