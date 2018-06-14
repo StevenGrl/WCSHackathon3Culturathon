@@ -24,12 +24,14 @@ class Favorite
     /**
      * @var int
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ArtWork", inversedBy="oeuvres")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $oeuvre;
 
     /**
      * @var int
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="users")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $user;
 

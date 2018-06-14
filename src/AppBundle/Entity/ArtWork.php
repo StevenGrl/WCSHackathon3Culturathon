@@ -98,6 +98,7 @@ class ArtWork
     private $type;
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Favorite", mappedBy="oeuvre")
+     *
      */
     private $oeuvres;
     /**
