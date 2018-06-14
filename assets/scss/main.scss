@@ -27,8 +27,12 @@ h1, h2, h3, h4, h5, h6 {
 //NAVBAR
 /////////////
 
+.navbar {
+  font-size: 0.5em;
+}
+
 .navbar-brand {
-  flex-grow: 2;
+  flex-grow: 0;
 }
 //
 //drops
@@ -37,7 +41,6 @@ h1, h2, h3, h4, h5, h6 {
   flex-grow: 0;
   .dropdown-menu {
     background-color: $pink;
-    font-size: 1rem;
     .dropdown-item {
       color: #ffffff;
     }
@@ -83,18 +86,52 @@ h1, h2, h3, h4, h5, h6 {
   text-align: justify;
 }
 
+.resume{
+  text-align: justify;
+}
+.center-pills {
+  display: flex;
+  justify-content: center;
+}
+.nav-pills {
+
+  .nav-item {
+    background-color: $hover-grey;
+    padding: 5px;
+  }
+
+  a{
+    color: white;
+  }
+  .nav-link.active{
+    background-color: black;
+
+  }
+}
+
 ///////////
 //MediaQuery
 //////////
-@media (max-width: 1200px) {
-
+@media (max-width: 1280px) {
   body{
     padding-top: 10px;
+    .navbar {
+      font-size: 0.5rem;
+      .navbar-brand {
+        font-size: 0.7rem;
+      }
+    }
   }
 }
-@media (min-width: 1150px) {
+@media (min-width: 1179px) {
 
   body{
     padding-top: 120px;
+    .navbar {
+      font-size: 0.8rem;
+      .navbar-brand {
+        font-size: 1.09375rem;
+      }
+    }
   }
 }
