@@ -22,23 +22,24 @@ class ArtWorkType extends AbstractType
             ->add('name')
             ->add('artist')
             ->add('description')
+            ->add('long_description')
             ->add('coordX')
             ->add('coordY')
-->add('date', DateType::class, [
-        'required' => true,
-        'widget' => 'single_text',
-        'html5' => true])
-        ->add('enigma')
-        ->add('answer')
-        ->add('type', EntityType::class, array(
-            'class' => \AppBundle\Entity\Type::class,
-   'choice_label' => 'name'))
-        ->add('tech', EntityType::class, array(
-            'class' => Tech::class,
-            'choice_label' => 'name'))
-        ->add('materials', EntityType::class, array(
-            'class' => Materials::class,
-            'choice_label' => 'name'));
+            ->add('date', DateType::class, [
+                'required' => true,
+                'widget' => 'single_text',
+                'html5' => true])
+            ->add('enigma')
+            ->add('answer')
+            ->add('type', EntityType::class, array(
+                'class' => \AppBundle\Entity\Type::class,
+                'choice_label' => 'name'))
+            ->add('tech', EntityType::class, array(
+                'class' => Tech::class,
+                'choice_label' => 'name'))
+            ->add('materials', EntityType::class, array(
+                'class' => Materials::class,
+                'choice_label' => 'name'));
     }
 
     /**
