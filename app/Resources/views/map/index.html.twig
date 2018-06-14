@@ -50,13 +50,9 @@ Map
                                         <div class="tile col-xs-1 {{ map[x][y].type }}">
                                             <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                             <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
-                                            {% if map[x][y].artwork.image is defined %}
-                                                <img class="oeuvre"
-                                                     src="{{ asset('images/') }}{{ map[x][y].artwork.image }}"
-                                                     alt="">
-                                            {% endif %}
                                             {% if finder.coordX == x and finder .coordY == y %}
-                                                <img class="finder img-responsive" src="{{ asset('images/finder.png') }}"
+                                                <img class="finder img-responsive"
+                                                     src="{{ asset('images/finder.png') }}"
                                                      alt="finder"/>
                                             {% endif %}
                                         </div>
