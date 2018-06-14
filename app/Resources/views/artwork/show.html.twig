@@ -1,27 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="container my-5 py-5">
-        <div class="row text-center">
-            <div class="col">
-
-            </div>
-        </div>
+    <div class="container">
         <div class="row text-center">
             <div class="col-2 py-5">
                 <p><i class="fas fa-clone m-2"></i> {{ artWork.type.name }} </p>
                 <p><i class="fas fa-pencil-alt m-2"></i> {{ artWork.tech.name }} </p>
                 <p><i class="fas fa-leaf m-2"></i> {{ artWork.materials.name }} </p>
+                <img class="w-75"
+                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg" id="imageHidden">
             </div>
             <div class="col-10">
-                <p class="resume">{{ artWork.description }}
-                <p>
+
+                <p class="resume">{{ artWork.description }}<p>
                     <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button"
                        aria-expanded="false" aria-controls="collapseExample" id="collapseHidden">
-
                         Lire la description
                     </a>
                 </p>
+                <div>
                 <div class="collapse" id="collapseExample">
                     <div class="card card-body">
                         {{ artWork.longdescription }}
@@ -32,28 +29,8 @@
                     </button>
                 </div>
                 <img class="w-75"
-                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg">
-                <div class="col mx-auto my-3">
-                    <h1>{{ artWork.name|lower }}</h1>
+                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg" id="imageShow">
                 </div>
-            </div>
-        </div>
-        <div class="row text-center">
-            <div class="col-7">
-                <h2>Description</h2>
-
-            </div>
-            <div class="col-5">
-
-                <img class="w-75"
-                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg">
-                <div class="col mx-auto my-3">
-                </div>
-                <p><i class="fas fa-clone m-2"></i> {{ artWork.type.name }} </p>
-                <i class="fas fa-pencil-alt m-2"></i> {{ artWork.tech.name }}
-                <i class="fas fa-leaf m-2"></i> {{ artWork.materials.name }} </p>
-
-
             </div>
         </div>
     </div>
