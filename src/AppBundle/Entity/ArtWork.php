@@ -97,9 +97,9 @@ class ArtWork
      */
     private $type;
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="artWorks")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Favorite", inversedBy="oeuvres")
      */
-    private $user;
+    private $oeuvre;
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Tech", inversedBy="artWorks")
      */
@@ -590,5 +590,53 @@ class ArtWork
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set oeuvres
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvres
+     *
+     * @return ArtWork
+     */
+    public function setOeuvres(\AppBundle\Entity\Favorite $oeuvres = null)
+    {
+        $this->oeuvres = $oeuvres;
+
+        return $this;
+    }
+
+    /**
+     * Get oeuvres
+     *
+     * @return \AppBundle\Entity\Favorite
+     */
+    public function getOeuvres()
+    {
+        return $this->oeuvres;
+    }
+
+    /**
+     * Set oeuvre
+     *
+     * @param \AppBundle\Entity\Favorite $oeuvre
+     *
+     * @return ArtWork
+     */
+    public function setOeuvre(\AppBundle\Entity\Favorite $oeuvre = null)
+    {
+        $this->oeuvre = $oeuvre;
+
+        return $this;
+    }
+
+    /**
+     * Get oeuvre
+     *
+     * @return \AppBundle\Entity\Favorite
+     */
+    public function getOeuvre()
+    {
+        return $this->oeuvre;
     }
 }
