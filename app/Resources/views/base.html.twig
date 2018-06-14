@@ -18,9 +18,9 @@
             Menu de l'oeuvre
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Artiste</a>
-            <a class="dropdown-item" href="#">Style</a>
             <a class="dropdown-item" href="{{ path( 'time_show', { id : artWork.time.id }) }}">Epoque</a>
+            <a class="dropdown-item" href="{{ path('artist_show', { id : artWork.artist.id}) }}">Artiste</a>
+            <a class="dropdown-item" href="{{ path('style_show', { id : artWork.style.id}) }}">Style</a>
         </div>
     </div>
     {% endif %}
@@ -65,8 +65,15 @@
                 <a class="nav-link" href="{{ path('concept') }}">concept</a>
             </li>
             <li class="nav-item align-self-center mx-auto">
-                <a class="nav-link" href="{{ path('fos_user_security_login') }}">login</a>
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    <a href="{{ path('fos_user_security_logout') }}" class="nav-link">
+                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                    </a>
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="nav-link">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+                {% endif %}
             </li>
+
         </ul>
     </div>
 </nav>

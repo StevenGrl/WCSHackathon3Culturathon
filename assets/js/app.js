@@ -18,7 +18,6 @@ $(window).ready(function() {
         $("#navbar").addClass("fixed-bottom");
         $("#drop_one").addClass("dropup");
         $("#drop_two").addClass("dropup");
-
     }
 });
 
@@ -33,6 +32,7 @@ $(window).resize(function() {
         $("#drop_one").addClass("dropup").removeClass("dropdown");
         $("#drop_two").addClass("dropup").removeClass("dropdown");
 
+
     }
 });
 
@@ -43,6 +43,7 @@ $('#collapseHidden').click(function(){
     $('#hidetext').hide();
     $('#pills-tab').hide();
     $('#pills-tabContent').hide();
+    $('#fav').hide();
 
 });
 $('#collapseShow').click(function(){
@@ -52,6 +53,8 @@ $('#collapseShow').click(function(){
     $('#hidetext').show();
     $('#pills-tab').show();
     $('#pills-tabContent').hide();
+    $('#fav').show();
+
 
 });
 $('#pills-tab').click(function(){

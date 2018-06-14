@@ -40,6 +40,11 @@ class ArtWork
      *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Artist", inversedBy="artWorks")
      */
     private $artist;
+    /**
+     * @var int
+     *@ORM\ManyToOne(targetEntity="AppBundle\Entity\Style", inversedBy="artWorks")
+     */
+    private $style;
 
     /**
      * @var string
@@ -666,6 +671,7 @@ class ArtWork
     }
 
     /**
+<<<<<<< HEAD
      * Set time
      *
      * @param \AppBundle\Entity\Time $time
@@ -675,7 +681,18 @@ class ArtWork
     public function setTime(\AppBundle\Entity\Time $time = null)
     {
         $this->time = $time;
+    }
 
+    /**
+     * Set style
+     *
+     * @param \AppBundle\Entity\Style $style
+     *
+     * @return ArtWork
+     */
+    public function setStyle(\AppBundle\Entity\Style $style = null)
+    {
+        $this->style = $style;
         return $this;
     }
 
@@ -687,5 +704,16 @@ class ArtWork
     public function getTime()
     {
         return $this->time;
+    }
+
+
+    /**
+     * Get style
+     *
+     * @return \AppBundle\Entity\Style
+     */
+    public function getStyle()
+    {
+        return $this->style;
     }
 }
