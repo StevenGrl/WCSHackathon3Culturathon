@@ -12,7 +12,7 @@ use AppBundle\Entity\Materials;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
-class materialsFixtures extends Fixture
+class MaterialsFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
@@ -32,6 +32,10 @@ class materialsFixtures extends Fixture
         $manager->persist($bronze);
 
         $manager->flush();
-        
+
+        $this->addReference('bois', $bois);
+        $this->addReference('toile', $toile);
+        $this->addReference('marbre', $marbre);
+        $this->addReference('bronze', $bronze);
     }
 }

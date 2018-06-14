@@ -17,19 +17,19 @@ class TypeFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $tableau = new Type();
+        $peinture = new Type();
         $photo = new Type();
         $sculpture = new Type();
         $fresque = new Type();
         $objet = new Type();
 
-        $tableau->setName("Tableau");
+        $peinture->setName("Peinture");
         $photo->setName("Photo");
         $sculpture->setName("Sculpture");
         $fresque->setName("Fresque");
         $objet->setName("Objet");
 
-        $manager->persist($tableau);
+        $manager->persist($peinture);
         $manager->persist($photo);
         $manager->persist($sculpture);
         $manager->persist($fresque);
@@ -37,5 +37,10 @@ class TypeFixtures extends Fixture
 
         $manager->flush();
 
+        $this->addReference('peinture', $peinture);
+        $this->addReference('photo', $photo);
+        $this->addReference('sculpture', $sculpture);
+        $this->addReference('fresque', $fresque);
+        $this->addReference('objet', $objet);
     }
 }
