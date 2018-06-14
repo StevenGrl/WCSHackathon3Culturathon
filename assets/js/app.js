@@ -18,6 +18,7 @@ $(window).ready(function() {
         $("#navbar").addClass("fixed-bottom");
         $("#drop_one").addClass("dropup");
         $("#drop_two").addClass("dropup");
+
     }
 });
 
@@ -31,6 +32,7 @@ $(window).resize(function() {
         $("#navbar").removeClass("fixed-top").addClass("fixed-bottom");
         $("#drop_one").addClass("dropup").removeClass("dropdown");
         $("#drop_two").addClass("dropup").removeClass("dropdown");
+
     }
 });
 
