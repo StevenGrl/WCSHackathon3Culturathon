@@ -1,60 +1,29 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Artwork</h1>
+    <div class="container my-5 py-5">
+        <div class="row text-center">
+            <div class="col">
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ artWork.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ artWork.name }}</td>
-            </tr>
-            <tr>
-                <th>Artist</th>
-                <td>{{ artWork.artist }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ artWork.description }}</td>
-            </tr>
-            <tr>
-                <th>Coordx</th>
-                <td>{{ artWork.coordX }}</td>
-            </tr>
-            <tr>
-                <th>Coordy</th>
-                <td>{{ artWork.coordY }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{% if artWork.date %}{{ artWork.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Enigma</th>
-                <td>{{ artWork.enigma }}</td>
-            </tr>
-            <tr>
-                <th>Answer</th>
-                <td>{{ artWork.answer }}</td>
-            </tr>
-        </tbody>
-    </table>
+            </div>
+        </div>
+        <div class="row text-center">
+            <div class="col-2 py-5">
+                <p><i class="fas fa-clone m-2"></i> {{ artWork.type.name }} </p>
+                <p><i class="fas fa-pencil-alt m-2"></i> {{ artWork.tech.name }} </p>
+                <p><i class="fas fa-leaf m-2"></i> {{ artWork.materials.name }} </p>
+            </div>
+            <div class="col-10">
+                <p class="resume">{{ artWork.description }}</p>
+                <img class="w-75"
+                     src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg">
+                <div class="col mx-auto my-3">
+                    <h1>{{ artWork.name|lower }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center">
 
-    <ul>
-        <li>
-            <a href="{{ path('artwork_index') }}" >Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('artwork_edit', { 'id': artWork.id }) }}"  class="btn btn-primary">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+        </div>
+    </div>
 {% endblock %}
