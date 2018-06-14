@@ -3,10 +3,12 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\ArtWork;
+use AppBundle\Entity\Favorite;
 use AppBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Artwork controller.
@@ -137,14 +139,18 @@ class ArtWorkController extends Controller
 
     /**
      * @param ArtWork $artWork
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/fav/{id}", name="artwork_fav")
      * @Method("GET")
      */
     public function favAction(ArtWork $artWork)
     {
         $em = $this->getDoctrine()->getManager();
-        $artWork->setUser($this->getUser());
-        $em->persist($artWork);
+        $favorite = new Favorite();
+        $favorite->setOeuvre($artWork);
+        $favorite->setUser($this->getUser());
+        $favorite->setFavourite(1);
+        $em->persist($favorite);
         $em->flush();
         return $this->render('artwork/show.html.twig', array(
             'artWork' => $artWork,

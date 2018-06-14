@@ -38,6 +38,7 @@ class Favorite
     /**
      * @var bool
      * @ORM\Column(name="favourite", type="integer")
+     * @ORM\JoinColumn(nullable=true)
      */
     private $favourite;
 
