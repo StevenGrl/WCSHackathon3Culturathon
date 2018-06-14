@@ -4,8 +4,8 @@
 @import "navbar";
 
 body {
+  background-color: #0e0e0e;
   padding-bottom: 5em;
-  padding-top: 5em;
 }
 
 //NAVBAR
@@ -18,7 +18,7 @@ body {
   flex-grow: 2;
 }
 
-.dropup {
+.drop {
   flex-grow: 0;
   .dropdown-menu {
     background-color: #e83e8c;
@@ -30,4 +30,12 @@ body {
       background-color: #343a40;
     }
   }
+}
+
+.dropup {
+  @extend .drop;
+}
+
+.dropdown {
+  @extend .drop;
 }
