@@ -33,10 +33,13 @@
         <div class="dropdown-divider"></div>
         <ul class="navbar-nav ml-auto">
             <li id="drop_two" class="nav-item navbar-brand">
+                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+
                 <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
                     Mes favoris
                 </a>
+                {% endif %}
                 <div id="favorite" class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                     {% if favorites is defined %}
                         {% for favorite in favorites %}
