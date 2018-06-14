@@ -8,12 +8,12 @@ body {
   padding-bottom: 5em;
   padding-top: 5em;
 }
+
 //////////
 //COLOR
 /////////
 $pink: #e83e8c;
 $hover-grey: #212121;
-
 
 ///////////
 //TEXT
@@ -34,6 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-brand {
   flex-grow: 0;
 }
+
 //
 //drops
 //
@@ -82,17 +83,26 @@ h1, h2, h3, h4, h5, h6 {
 .card {
   background-color: transparent;
 }
-.card-body{
+
+.card-body {
   text-align: justify;
 }
 
-.resume{
+.resume {
   text-align: justify;
 }
+
 .center-pills {
   display: flex;
-  justify-content: center;
+  text-align: center;
 }
+
+.objeFit {
+  margin-top: -10vw;
+  max-height: 10vm;
+
+}
+
 .nav-pills {
 
   .nav-item {
@@ -100,12 +110,15 @@ h1, h2, h3, h4, h5, h6 {
     padding: 5px;
   }
 
-  a{
+  a {
     color: white;
   }
-  .nav-link.active{
+  .nav-link.active {
     background-color: black;
 
+  }
+  .pills-tabContent{
+    display: none;
   }
 }
 
@@ -113,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
 //MediaQuery
 //////////
 @media (max-width: 1280px) {
-  body{
+  body {
     padding-top: 10px;
     .navbar {
       font-size: 0.5rem;
@@ -123,9 +136,10 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 }
+
 @media (min-width: 1179px) {
 
-  body{
+  body {
     padding-top: 120px;
     .navbar {
       font-size: 0.8rem;
