@@ -230,6 +230,7 @@ Les derniers Mystère IV terminent leur carrière à la 8e Escadre de Chasse de 
             MuseumFixtures::class,
             RoomFixtures::class,
             ArtistFixtures::class,
+            TileFixtures::class,
         ];
     }
 }

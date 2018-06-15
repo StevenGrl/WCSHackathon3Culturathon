@@ -144,7 +144,6 @@ class ArtWork
 
     /**
      * @ORM\OneToOne(targetEntity="Tile", mappedBy="artwork")
-     * @ORM\JoinColumn(name="tile_id", referencedColumnName="id")
      */
     private $tile;
 

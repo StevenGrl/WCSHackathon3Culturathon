@@ -28,7 +28,9 @@ class PaintFixtures extends Fixture
         $acrylique->setDescription('La principale qualité de la peinture acrylique est sa docilité : dilution à l\'eau (sans excès), miscibilité, mélanges faciles à préparer, facilité d\'application, polyvalence de supports, faible odeur. Elle est très solide et indélébile.
 
 Elle a la particularité de sécher très vite, en quelques minutes. C\'est un avantage lorsqu\'il s\'agit de travailler plus rapidement les différentes couches, mais peut constituer un inconvénient en empêchant les retouches. Aujourd\'hui, on peut trouver des acryliques à séchage ralenti (d\'une heure à plusieurs jours).');
-        $eau->setDescription('L\'expression peinture à l\'eau désigne populairement, dans le domaine des beaux-arts, l’aquarelle et la gouache, peintures comportant des pigments et un liant à la gomme arabique. Dans ces deux cas, le mot désigne aussi bien le matériau coloré qui se dilue à l\'eau, la technique d\'application et l\'œuvre. En principe, l\'aquarelle est transparente, tandis que la gouache est couvrante.');
+        $huile->setDescription('La peinture à l\'huile est une peinture dont le liant ou véhicule est une huile siccative qui enveloppe complètement les particules de pigment.
+On appelle aussi peinture les travaux d\'enduction d\'une surface par ce genre de produit. Les autorités normatives françaises demandent qu\'on dise peinturage, mais ce terme n\'a jamais pris1. La peinture à l\'huile est donc aussi l\'activité de nombreux artistes peintres passés et présents, ainsi qu\'une technique picturale.
+');
         $aquarelle->setDescription('
 Aquarelle de J. Grandgagnage, 1988.
 L’aquarelle est une technique picturale fondée sur l\'utilisation de pigments broyés, agglutinés avec de l\'eau gommée pour constituer une peinture à l\'eau également appelée aquarelle, ainsi que les ouvrages de peintures réalisées par ce procédé. Elle se pratique généralement sur papier.

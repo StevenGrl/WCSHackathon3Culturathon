@@ -51,7 +51,7 @@
                             <div class="justify-content-end">
                                 <h6 class="mt-5 text-right">Oeuvres similaires</h6>
                                 <div class="row pl-1 justify-content-end">
-                                    {% for artWork in artWorks if artWork.paint.id == artWork.paint.id %}
+                                    {% for artWork in artWorks if artWork.paint == artWork.paint %}
                                         <a class="badge badge-primary m-1"
                                            href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
                                     {% endfor %}
@@ -77,7 +77,7 @@
                             <div class="justify-content-end">
                                 <h6 class="mt-5 text-right">Oeuvres similaires</h6>
                                 <div class="row pl-1 justify-content-end">
-                                    {% for artWork in artWorks if artWork.materials.id == artWork.materials.id %}
+                                    {% for artWork in artWorks if artWork.materials == artWork.materials %}
                                         <a class="badge badge-primary m-1"
                                            href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
                                     {% endfor %}
