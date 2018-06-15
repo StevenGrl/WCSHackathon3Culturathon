@@ -113,9 +113,9 @@ Map {% if room is not null %}{{ room.name }} - {{ room.theme }}{% endif %}
                         {% for x in 0..6 %}
                             {% if map[x][y] is defined %}
                                 <div class="tile col-xs-1 {{ map[x][y].type }}"
-                                        {% if map[x][y].type == 'oeuvre' %}
-                                    style="background-image:url('{{ asset('images/') }}{{ map[x][y].artWork.image }}')"
-                                        {% endif %}>
+                                {% if map[x][y].type == 'oeuvre' %}
+                                style="background-image:url('{{ asset('images/') }}{{ map[x][y].artWork.image }}')"
+                                {% endif %}>
                                     <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                     <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
                                     {% if finder.coordX == x and finder.coordY == y %}
@@ -131,5 +131,4 @@ Map {% if room is not null %}{{ room.name }} - {{ room.theme }}{% endif %}
         </div>
         </div>
     </div>
-
 {% endblock %}

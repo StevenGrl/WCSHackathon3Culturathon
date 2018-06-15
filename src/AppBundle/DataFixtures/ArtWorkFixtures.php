@@ -31,7 +31,7 @@ class ArtWorkFixtures extends Fixture implements DependentFixtureInterface
             $art_cogniet->setMaterials($this->getReference('toile'));
             $art_cogniet->setPaint($this->getReference('huile'));
             $art_cogniet->setTime($this->getReference('contemporain'));
-            $art_cogniet->setTile($this->getReference('tile7'));
+            $art_cogniet->setTile($this->getReference('tile6'));
             $art_cogniet->setName("Cable Car");
             $art_cogniet->setArtist($this->getReference('cognet'));
             $art_cogniet->setDescription("Episode de la campagne d’Egypte – Bataille d’Héliopolis le 20 mars 1800");
