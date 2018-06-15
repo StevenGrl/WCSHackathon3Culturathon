@@ -33,7 +33,11 @@ class Type
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="type")
      */
     private $artWorks;
-
+    /**
+     * @var string
+     * @ORM\Column(name="description", type="text")
+     */
+    private $description;
     /**
      * Get id
      *
@@ -107,5 +111,29 @@ class Type
     public function getArtWorks()
     {
         return $this->artWorks;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Type
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
