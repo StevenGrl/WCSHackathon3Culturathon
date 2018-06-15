@@ -99,6 +99,7 @@ nav {
 .center-pills {
   display: flex;
   text-align: center;
+  margin-left: 3vw;
 }
 
 .objeFit {
@@ -187,4 +188,47 @@ nav {
   body{
     margin-bottom: 50vh;
   }
+}
+
+//CSS GRID//
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+.one {
+  grid-column: 4 / 6;
+  grid-row: 1;
+}
+.two {
+  grid-column: 4 / 6;
+  grid-row: 2 ;
+}
+.three {
+  grid-column: 4 / 6;
+  grid-row: 3 ;
+}
+.four {
+  grid-column: 4 / 6;
+  grid-row: 3 / 6;
+
+  border: solid 2px $pink;
+  border-radius: 10px;
+
+  margin-left: 10%;
+  margin-right: 10%;
+
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+.five {
+  grid-column: 2;
+  grid-row: 6;
+}
+.six {
+  grid-column: 1 / 4;
+  grid-row: 1 / 6;
 }

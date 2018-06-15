@@ -12,6 +12,13 @@ function ajaxDirection(move) {
         $('#map').replaceWith(mapResult);
         const buttonOeuvre = $(result).find('#btn-oeuvre');
         $('#btn-oeuvre').replaceWith(buttonOeuvre);
+<<<<<<< Updated upstream
+        const buttonWin = $(result).find('#btn-win');
+        $('#btn-win').replaceWith(buttonWin);
+=======
+        const infoOeuvre = $(result).find('#infoOeuvre');
+        $('#infoOeuvre').replaceWith(infoOeuvre);
+>>>>>>> Stashed changes
     });
 }
 

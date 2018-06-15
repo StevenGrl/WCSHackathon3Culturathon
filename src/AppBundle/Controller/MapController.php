@@ -4,10 +4,13 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\ArtWork;
 use AppBundle\Entity\Finder;
+use AppBundle\Entity\Room;
 use AppBundle\Entity\Tile;
 use AppBundle\Services\MapManager;
 use AppBundle\Traits\FinderTrait;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,11 +22,15 @@ class MapController extends Controller
 
     /**
      * @Route("/map", name="map")
+     * @Method({"GET","POST"})
      */
     public function displayMapAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $tiles = $em->getRepository(Tile::class)->findAll();
+
+        $room_id = $request->request->get('room');
+        $room = $em->getRepository(Room::class)->findOneById($room_id);
 
         foreach ($tiles as $tile) {
             $map[$tile->getCoordX()][$tile->getCoordY()] = $tile;
@@ -40,11 +47,14 @@ class MapController extends Controller
         $form = $this->createForm('AppBundle\Form\AnswerType');
         $form->handleRequest($request);
 
+        $win = 0;
+
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $rightAnswer = $artWorkRepo->findOneByTile($tileTreasure)->getAnswer();
             if ($data['answer'] == $rightAnswer) {
-                $this->addFlash('success', 'Tu as trouvé la réponse bravo à toi mon grand :) !');
+                $this->addFlash('success', 'Tu as trouvé la réponse bravo à toi :) !');
+                $win = 1;
             } else {
                 $this->addFlash('danger', 'Ce n\'est pas ça, essaie encore ! ;)');
             }
@@ -55,6 +65,8 @@ class MapController extends Controller
             'finder' => $finder,
             'question' => $question,
             'form' => $form->createView(),
+            'room' => $room,
+            'win' => $win,
         ]);
     }
 
@@ -80,5 +92,17 @@ class MapController extends Controller
         $em->flush();
 
         return $this->redirectToRoute('map');
+    }
+
+    /**
+     * @Route("/chooseRoom", name="choose_room")
+     */
+    public function chooseRoom()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $rooms = $em->getRepository(Room::class)->findAll();
+        return $this->render('chooseRoom.html.twig', array(
+            'rooms' => $rooms
+        ));
     }
 }
