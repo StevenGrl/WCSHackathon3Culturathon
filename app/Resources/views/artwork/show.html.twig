@@ -69,13 +69,6 @@
                         <h3>{{ artWork.style.name }}</h3>
                         <p>{{ artWork.style.description }}</p>
                     </div>
-                    <div class="d-sm-block d-none">
-                        <a class="btn btn-primary" data-toggle="collapse"
-                           href="#collapseExample"
-                           role="button"
-                           aria-expanded="false" aria-controls="collapseExample"
-                           id="collapseHidden"> Agrandir l'image ! </a>
-                    </div>
                 </div>
                 <div>
                     <div class="collapse" id="collapseExample">
@@ -90,27 +83,38 @@
 
                     </div>
                 </div>
-                {% set thisArtwork = 0 %}
-                {% set idFavorite = "" %}
-                {% for favorite in favorites %}
-                    {% if favorite.oeuvre.id == artWork.id %}
-                        {% if favorite.favourite == 1 %}
-                            {% set thisArtwork = 1 %}
-                            {% set idFavorite = favorite.id %}
+                <div class="row">
+                    <div class="col-7 d-sm-block d-none mt-3">
+                        <a class="btn btn-primary" data-toggle="collapse"
+                           href="#collapseExample"
+                           role="button"
+                           aria-expanded="false" aria-controls="collapseExample"
+                           id="collapseHidden"> Agrandir l'image ! </a>
+                    </div>
+                    {% set thisArtwork = 0 %}
+                    {% set idFavorite = "" %}
+                    {% for favorite in favorites %}
+                        {% if favorite.oeuvre.id == artWork.id %}
+                            {% if favorite.favourite == 1 %}
+                                {% set thisArtwork = 1 %}
+                                {% set idFavorite = favorite.id %}
+                            {% endif %}
                         {% endif %}
+                    {% endfor %}
+                    {% if thisArtwork == 0 %}
+                        <div class="col-7">
+                            <a href="{{ path('artwork_fav', { id : artWork.id } ) }}"
+                               class="btn btn-primary mx-auto mt-2" id="fav">
+                                <i class="far fa-heart"></i> Mettre l'oeuvre en favoris</a>
+                        </div>
+                    {% else %}
+                        <div class="col-3">
+                            <a href="{{ path('artwork_defav', { id : idFavorite } ) }}"
+                               class="btn btn-primary mx-auto mt-2" id="fav">
+                                <i class="fas fa-heart selectedPills"></i> Oeuvre en favoris!</a>
+                        </div>
                     {% endif %}
-                {% endfor %}
-                {% if thisArtwork == 0 %}
-                    <div class="col-3">
-                        <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="btn btn-primary mx-auto mt-2" id="fav">
-                            <i class="far fa-heart"></i> Mettre l'oeuvre en favoris</a>
-                    </div>
-                {% else %}
-                    <div class="col-3">
-                        <a href="{{ path('artwork_defav', { id : idFavorite } ) }}" class="btn btn-primary mx-auto mt-2" id="fav">
-                            <i class="fas fa-heart selectedPills"></i> Oeuvre en favoris!</a>
-                    </div>
-                {% endif %}
+                </div>
                 <div class="col-9"></div>
             </div>
         </div>
