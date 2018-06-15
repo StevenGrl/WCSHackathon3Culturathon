@@ -10,7 +10,7 @@ import 'bootstrap/dist/js/bootstrap'
 $(window).ready(function() {
     $('#imageHidden').hide();
     $('#pills-tabContent').hide();
-    $("#artist").addClass("d-none");
+    $("#hidetext").addClass("d-none");
     $("#style").addClass("d-none");
     $("#time").addClass("d-none");
 
