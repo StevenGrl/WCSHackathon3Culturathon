@@ -21,9 +21,9 @@ class PaintFixtures extends Fixture
         $eau = new Paint();
         $aquarelle = new Paint();
 
-        $acrylique->setName('acrylique');
-        $eau->setName('eau');
-        $aquarelle->setName('aquarelle');
+        $acrylique->setName('Acrylique');
+        $eau->setName('Eau');
+        $aquarelle->setName('Aquarelle');
 
         $manager->persist($acrylique);
         $manager->persist($aquarelle);
