@@ -35,18 +35,54 @@
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                              aria-labelledby="type">
                             <p>{{ artWork.type.description }}</p>
+                            <div class="justify-content-end">
+                                <h6 class="mt-5 text-right">Oeuvres similaires</h6>
+                                <div class="row pl-1 justify-content-end">
+                                    {% for artWork in artWorks if artWork.type.id == artWork.type.id %}
+                                        <a class="badge badge-primary m-1"
+                                           href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                              aria-labelledby="paint">
                             <p>{{ artWork.paint.description }}</p>
+                            <div class="justify-content-end">
+                                <h6 class="mt-5 text-right">Oeuvres similaires</h6>
+                                <div class="row pl-1 justify-content-end">
+                                    {% for artWork in artWorks if artWork.paint.id == artWork.paint.id %}
+                                        <a class="badge badge-primary m-1"
+                                           href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                              aria-labelledby="tech">
                             <p>{{ artWork.tech.description }}</p>
+                            <div class="justify-content-end">
+                                <h6 class="mt-5 text-right">Oeuvres similaires</h6>
+                                <div class="row pl-1 justify-content-end">
+                                    {% for artWork in artWorks if artWork.tech.id == artWork.tech.id %}
+                                        <a class="badge badge-primary m-1"
+                                           href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                              aria-labelledby="materials">
                             <p>{{ artWork.materials.description }}</p>
+                            <div class="justify-content-end">
+                                <h6 class="mt-5 text-right">Oeuvres similaires</h6>
+                                <div class="row pl-1 justify-content-end">
+                                    {% for artWork in artWorks if artWork.materials.id == artWork.materials.id %}
+                                        <a class="badge badge-primary m-1"
+                                           href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,14 +100,41 @@
                     <div class="resume mt-lg-5" id="time">
                         <h3>{{ artWork.time.period }}</h3>
                         <p>{{ artWork.time.description }}</p>
+                        <div class="justify-content-end">
+                            <h6 class="mt-5 text-right">Oeuvres de même periode</h6>
+                            <div class="row pl-1 justify-content-end">
+                                {% for artWork in artWorks if artWork.time.id == artWork.time.id %}
+                                    <a class="badge badge-primary m-1"
+                                       href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                     <div class="resume mt-lg-5" id="artist">
                         <h3>{{ artWork.artist.name }}</h3>
                         <p>{{ artWork.artist.description }}</p>
+                        <div class="justify-content-end">
+                            <h6 class="mt-5 text-right">Oeuvres du même artiste</h6>
+                            <div class="row pl-1 justify-content-end">
+                                {% for artWork in artWorks if artWork.artist.id == artWork.artist.id %}
+                                    <a class="badge badge-primary m-1"
+                                       href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                     <div class="resume mt-lg-5" id="style">
                         <h3>{{ artWork.style.name }}</h3>
                         <p>{{ artWork.style.description }}</p>
+                        <div class="justify-content-end">
+                            <h6 class="mt-5 text-right">Oeuvres du même mouvement</h6>
+                            <div class="row pl-1 justify-content-end">
+                                {% for artWork in artWorks if artWork.style.id == artWork.style.id %}
+                                    <a class="badge badge-primary m-1"
+                                       href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div>
