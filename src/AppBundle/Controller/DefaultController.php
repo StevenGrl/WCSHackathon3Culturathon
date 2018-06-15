@@ -30,7 +30,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $favorites = $em->getRepository('AppBundle:Favorite')->findAll();
 
-        return $this->render('navbar.html.twig', array(
+        return $this->render('base.html.twig', array(
             'favorites' => $favorites,
         ));
     }

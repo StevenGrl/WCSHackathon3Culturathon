@@ -110,6 +110,10 @@ h2 {
   background-color: lightgrey;
 }
 
-//body {
-//  overflow: hidden;
-//}
+@for $i from 1 through 8 {
+  .oeuvre-#{$i} { background-image: url('../images/#{$i}.jpeg'); }
+}
+
+body {
+  overflow: hidden;
+}
