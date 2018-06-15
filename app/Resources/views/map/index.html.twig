@@ -7,9 +7,11 @@
 {% block javascripts %}
     <script src="{{ asset('build/moveFinder.js') }}"></script>
 {% endblock %}
+
 {% block page_title %}
 Map
 {% endblock %}
+
 {% block body %}
     <div class="question mt-5">
         {% if question is defined %}
@@ -32,10 +34,19 @@ Map
         </div>
         {% endif %}
     </div>
-    <div id="messageFlash">
+
+    <div id="btn-oeuvre">
+        {% if map[finder.coordX][finder.coordY].artWork is not null %}
+            <a class="btn btn-primary"
+               href="{{ path('artwork_show', {'id': map[finder.coordX][finder.coordY].artWork.id }) }}">Voir l'oeuvre
+            </a>
+        {% endif %}
+    </div>
+
+    <div id="messageFlash" class="mt-2">
     {% for label, messages in app.flashes %}
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
             {% for message in messages %}
                 <div class="alert alert-{{ label }}">
                     {{ message }}
@@ -51,15 +62,17 @@ Map
                 {% if map is empty %}
                     <div class="alert alert-warning">Woups ! Le museum a disparu ! :/</div>
                 {% endif %}
-                {% set cpt = 1 %}
                 {% for y in 0..8 %}
                     <div class="row">
                         {% for x in 0..6 %}
                             {% if map[x][y] is defined %}
-                                <div class="tile col-xs-1 {{ map[x][y].type }}{% if map[x][y].type == 'oeuvre' %}-{{ cpt }}{% set cpt = cpt + 1 %}{% endif %}">
+                                <div class="tile col-xs-1 {{ map[x][y].type }}"
+                                {% if map[x][y].type == 'oeuvre' %}
+                                style="background-image:url('{{ asset('build/images/') }}{{ map[x][y].artWork.image }}')"
+                                {% endif %}>
                                     <div class="tile-name">{{ map[x][y].name ?? ' '}}</div>
                                     <div class="tile-name coords">{{ map[x][y].coordX }},{{ map[x][y].coordY }}</div>
-                                    {% if finder.coordX == x and finder .coordY == y %}
+                                    {% if finder.coordX == x and finder.coordY == y %}
                                         <img class="finder img-responsive" src="{{ asset('images/finder.png') }}"
                                              alt="finder"/>
                                     {% endif %}
