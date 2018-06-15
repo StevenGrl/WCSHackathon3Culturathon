@@ -12,7 +12,7 @@
 <body>
 <nav id="navbar" class="navbar navbar-expand-xs navbar-dark bg-dark justify-content-between flex-row py-lg-0 py-sm-2">
     {% if artWork is defined %}
-        <div id="drop_one" class="nav-item navbar-brand mx-auto">
+        <div id="drop_one" class="nav-item navbar-brand ml-0">
             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
                 Menu de l'oeuvre
@@ -25,7 +25,7 @@
             </div>
         </div>
     {% endif %}
-    <div class="mx-2">
+    <div class="mx-auto">
         <a class="navbar-brand nav-item text-light" href="#">
             {% if artWork is defined %}
                 {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist.name }}
