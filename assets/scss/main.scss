@@ -41,6 +41,9 @@ nav {
 //
 .drop {
   flex-grow: 0;
+  .btn-drop {
+    background-color: $pink;
+  }
   .dropdown-menu {
     background-color: $pink;
     .dropdown-item {
@@ -181,4 +184,7 @@ nav {
 #collapseHidden{
   display:none;
 }
+  body{
+    margin-bottom: 50vh;
+  }
 }

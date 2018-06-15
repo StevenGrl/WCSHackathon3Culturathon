@@ -17,7 +17,7 @@ class ArtWorkFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
-        for ($i = 1; $i < 9; $i++) {
+        for ($i = 1; $i < 7; $i++) {
             $art = new ArtWork();
             $art->setType($this->getReference('peinture'));
             $art->setTech($this->getReference('pinceau'));
