@@ -714,7 +714,6 @@ class ArtWork
         return $this->time;
     }
 
-
     /**
      * Get style
      *
