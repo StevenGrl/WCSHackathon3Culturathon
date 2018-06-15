@@ -44,7 +44,7 @@ class MapController extends Controller
             $data = $form->getData();
             $rightAnswer = $artWorkRepo->findOneByTile($tileTreasure)->getAnswer();
             if ($data['answer'] == $rightAnswer) {
-                $this->addFlash('success', 'Tu as trouvé la réponse bravo à toi mon grand :) !');
+                $this->addFlash('success', 'Tu as trouvé la réponse bravo à toi :) !');
             } else {
                 $this->addFlash('danger', 'Ce n\'est pas ça, essaie encore ! ;)');
             }

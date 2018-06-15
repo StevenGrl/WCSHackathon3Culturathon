@@ -10,6 +10,8 @@ function ajaxDirection(move) {
         $('#messageFlash').replaceWith(alertResult);
         const mapResult = $(result).find('#map');
         $('#map').replaceWith(mapResult);
+        const buttonOeuvre = $(result).find('#btn-oeuvre');
+        $('#btn-oeuvre').replaceWith(buttonOeuvre);
     });
 }
 

@@ -57,7 +57,7 @@ class Tile
     private $hasTreasure;
 
     /**
-     * @ORM\OneToOne(targetEntity="ArtWork")
+     * @ORM\OneToOne(targetEntity="ArtWork", mappedBy="tile")
      * @ORM\JoinColumn(name="artwork_id", referencedColumnName="id")
      */
     private $artwork;
