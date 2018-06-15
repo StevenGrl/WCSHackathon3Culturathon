@@ -18,7 +18,7 @@ class StyleFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $impressionnisme = new Style();
-        $impressionnisme->setName('impressionnisme');
+        $impressionnisme->setName('Impressionnisme');
         $impressionnisme->setDescription('
 Impression, soleil levant (1872), toile de Claude Monet, qui a donné son nom à l\'impressionnisme.
 L’impressionnisme est un mouvement pictural né de l\'association d\'artistes de la seconde moitié du xixe siècle vivant en France. Fortement critiqué à ses débuts, ce mouvement se manifeste notamment de 1874 à 1886 par des expositions publiques à Paris, et marqua la rupture de l\'art moderne avec la peinture académique.
