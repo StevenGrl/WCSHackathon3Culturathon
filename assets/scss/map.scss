@@ -105,7 +105,3 @@ h2 {
   background-image: url('../images/door.png');
   background-color: lightgrey;
 }
-
-@for $i from 1 through 8 {
-  .oeuvre-#{$i} { background-image: url('../images/#{$i}.jpeg'); }
-}
