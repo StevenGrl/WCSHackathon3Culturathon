@@ -25,7 +25,7 @@
             </div>
         </div>
     {% endif %}
-    <div class="mx-auto">
+    <div class="mx-2">
         <a class="navbar-brand nav-item text-light" href="#">
             {% if artWork is defined %}
                 {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist.name }}
@@ -87,7 +87,6 @@
                        class="nav-link">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
                 {% endif %}
             </li>
-
         </ul>
     </div>
 </nav>
