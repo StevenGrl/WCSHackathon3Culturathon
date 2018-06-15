@@ -49,14 +49,13 @@
             </div>
 
             <div class="row">
-
-                <div class="col-lg-2 py-5 col-md-12">
+                <div class="col-lg-3 col-md-12">
                     <img class="w-100"
                          src="https://storage.gra1.cloud.ovh.net/v1/AUTH_10e1a9235c63431c95e5b84a247830db/prod/artwork/42673_1_l.jpg"
                          id="imageShow">
                 </div>
                 <!-- Bouton "Voir plus" -->
-                <div class="col-xs-12 col-lg-10">
+                <div class="col-xs-12 col-lg-9">
                     <p class="resume mt-lg-5" id="hidetext">{{ artWork.longdescription }}</p>
                     <div class="resume mt-lg-5" id="time">
                         <h3>{{ artWork.time.period }}</h3>
@@ -102,12 +101,17 @@
                     {% endif %}
                 {% endfor %}
                 {% if thisArtwork == 0 %}
-                    <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="btn btn-primary" id="fav">
-                        <i class="far fa-heart"></i> Mettre l'oeuvre en favoris</a>
+                    <div class="col-3">
+                        <a href="{{ path('artwork_fav', { id : artWork.id } ) }}" class="btn btn-primary mx-auto mt-2" id="fav">
+                            <i class="far fa-heart"></i> Mettre l'oeuvre en favoris</a>
+                    </div>
                 {% else %}
-                    <a href="{{ path('artwork_defav', { id : idFavorite } ) }}" class="btn btn-primary" id="fav">
-                        <i class="fas fa-heart selectedPills"></i> Oeuvre en favoris!</a>
+                    <div class="col-3">
+                        <a href="{{ path('artwork_defav', { id : idFavorite } ) }}" class="btn btn-primary mx-auto mt-2" id="fav">
+                            <i class="fas fa-heart selectedPills"></i> Oeuvre en favoris!</a>
+                    </div>
                 {% endif %}
+                <div class="col-9"></div>
             </div>
         </div>
     </div>
