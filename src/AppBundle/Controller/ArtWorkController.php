@@ -69,11 +69,12 @@ class ArtWorkController extends Controller
     public function showAction(ArtWork $artWork)
     {
         $em = $this->getDoctrine()->getManager();
-
+        $artWorks = $em->getRepository('AppBundle:ArtWork')->findAll();
         $deleteForm = $this->createDeleteForm($artWork);
         $favorite2 = $em->getRepository('AppBundle:Favorite')->findAll();
 
         return $this->render('artwork/show.html.twig', array(
+            $artWorks => 'artWorks',
             'artWork' => $artWork,
             'delete_form' => $deleteForm->createView(),
             'favorites' => $favorite2,

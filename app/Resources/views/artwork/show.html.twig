@@ -35,6 +35,15 @@
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                              aria-labelledby="type">
                             <p>{{ artWork.type.description }}</p>
+                            <div class="justify-content-end">
+                                <h6 class="mt-5 text-right">Oeuvres similaires</h6>
+                                <div class="row pl-1 justify-content-end">
+                                    {% for artWork in artWorks if artWork.type.id == artWork.type.id %}
+                                        <a class="badge badge-primary m-1"
+                                           href="{{ path('artwork_show', {id : artWork.id }) }}">{{ artWork.name }}</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                              aria-labelledby="paint">
