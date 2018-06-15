@@ -100,10 +100,6 @@ h2 {
 .wall {
   background-image: url('../images/wall.png');
 }
-//
-//.oeuvre {
-//  background-image: url('../images/tableau.jpg');
-//}
 
 .door {
   background-image: url('../images/door.png');
@@ -113,7 +109,3 @@ h2 {
 @for $i from 1 through 8 {
   .oeuvre-#{$i} { background-image: url('../images/#{$i}.jpeg'); }
 }
-
-//body {
-//  overflow: hidden;
-//}
