@@ -73,12 +73,12 @@ class ArtWorkController extends Controller
         $deleteForm = $this->createDeleteForm($artWork);
         $favorite2 = $em->getRepository('AppBundle:Favorite')->findAll();
 
-        return $this->render('artwork/show.html.twig', array(
-            $artWorks => 'artWorks',
+        return $this->render('artwork/show.html.twig', [
+            'artWorks' => $artWorks,
             'artWork' => $artWork,
             'delete_form' => $deleteForm->createView(),
             'favorites' => $favorite2,
-        ));
+        ]);
     }
 
     /**
