@@ -7,6 +7,7 @@ use AppBundle\Entity\Finder;
 use AppBundle\Entity\Tile;
 use AppBundle\Services\MapManager;
 use AppBundle\Traits\FinderTrait;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +20,7 @@ class MapController extends Controller
     /**
      * @Route("/map", name="map")
      */
-    public function displayMapAction()
+    public function displayMapAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $tiles = $em->getRepository(Tile::class)->findAll();
@@ -32,12 +33,26 @@ class MapController extends Controller
 
         $tileTreasure = $em->getRepository(Tile::class)->findOneByHasTreasure(1);
 
-        $question = $em->getRepository(ArtWork::class)->findOneByTile($tileTreasure)->getEnigma();
+        $artWorkRepo = $em->getRepository(ArtWork::class);
+
+        $question = $artWorkRepo->findOneByTile($tileTreasure)->getEnigma();
+
 
         $form = $this->createForm('AppBundle\Form\AnswerType');
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            $rightAnswer = $artWorkRepo->findOneByTile($tileTreasure)->getAnswer();
+            if ($data['answer'] == $rightAnswer) {
+                $this->addFlash('success', 'Tu as trouvé la réponse bravo à toi mon grand :) !');
+            } else {
+                $this->addFlash('danger', 'Ce n\'est pas ça, essaie encore ! ;)');
+            }
+        }
 
         return $this->render('map/index.html.twig', [
-            'map'  => $map ?? [],
+            'map' => $map ?? [],
             'finder' => $finder,
             'question' => $question,
             'form' => $form->createView(),

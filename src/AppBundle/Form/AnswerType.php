@@ -29,7 +29,7 @@ class AnswerType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_artwork';
+        return 'appbundle_answer';
     }
 
 
