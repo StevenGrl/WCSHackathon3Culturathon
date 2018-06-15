@@ -30,6 +30,13 @@ Map {% if room is not null %}{{ room.name }} - {{ room.theme }}{% endif %}
                 {% endfor %}
             </div>
             {% endif %}
+            <div id="btn-win">
+                {% if win > 0 %}
+                    <a class="btn btn-primary"
+                       href="{{ path('choose_room') }}"> Lancer une nouvelle partie
+                    </a>
+                {% endif %}
+            </div>
         </div>
 
         <div class="two">
@@ -52,23 +59,8 @@ Map {% if room is not null %}{{ room.name }} - {{ room.theme }}{% endif %}
 
                     <div class="blue"><img class="col-12" src="{{ asset('images/') }}{{ map[finder.coordX][finder.coordY].artWork.image }}" alt="Tableau"></div>
 
-<<<<<<< Updated upstream
-    <div id="btn-win">
-        {% if win > 0 %}
-            <a class="btn btn-primary"
-               href="{{ path('choose_room') }}"> Lancer une nouvelle partie
-            </a>
-        {% endif %}
-    </div>
 
-    <div id="messageFlash" class="mt-2">
-    {% for label, messages in app.flashes %}
-        <div class="row">
-            <div class="col-sm-6">
-            {% for message in messages %}
-                <div class="alert alert-{{ label }}">
-                    {{ message }}
-=======
+
                 {% endif %}
             </div>
             <div id="btn-oeuvre">
@@ -90,9 +82,8 @@ Map {% if room is not null %}{{ room.name }} - {{ room.theme }}{% endif %}
                         <i class="fas fa-chevron-up"></i>
                     </a>
                 </div>
-                <div class="d-inline-flex" style="margin-bottom: 10%;">
-                    <a class="btn btn-warning move"
-                       style="margin-right: 5%;"
+                <div class="d-inline-flex " style="margin-bottom: 10%;">
+                    <a class="btn btn-warning move pouet"
                        data-move="W"
                        href="{{ path('moveDirection', {"direction": 'W'}) }}">
                         <i class="fas fa-chevron-left"></i>
@@ -109,7 +100,6 @@ Map {% if room is not null %}{{ room.name }} - {{ room.theme }}{% endif %}
                        href="{{ path('moveDirection', {"direction": 'S'}) }}">
                         <i class="fas fa-chevron-down"></i>
                     </a>
->>>>>>> Stashed changes
                 </div>
             </div>
         </div>

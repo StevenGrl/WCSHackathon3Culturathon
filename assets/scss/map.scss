@@ -37,8 +37,52 @@
 }
 @media screen and (max-width: 1200px) {
   .tile {
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: 50px;
+  }
+
+    .wrapper {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      grid-auto-rows: minmax(100px, auto);
+    }
+    .one {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+    .two {
+      grid-column: 1 / 4;
+      grid-row: 6 ;
+    }
+    .three {
+      grid-column: 1 / 4;
+      grid-row: 7 ;
+    }
+    .four {
+      grid-column: 1 / 4;
+      grid-row: 8;
+
+      border: solid 2px deeppink;
+      border-radius: 10px;
+
+      margin-left: 10%;
+      margin-right: 10%;
+
+      padding-left: 10%;
+      padding-right: 10%;
+
+    }
+    .five {
+      grid-column: 1 / 4;
+      grid-row: 5;
+    }
+    .six {
+      grid-column: 1 / 4;
+      grid-row: 2 / 5;
+    }
+  .pouet{
+    margin-right: 54%;
   }
 }
 
