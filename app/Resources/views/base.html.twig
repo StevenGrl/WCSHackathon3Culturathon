@@ -26,7 +26,7 @@
         </div>
     {% endif %}
     <div class="mx-auto">
-        <a class="navbar-brand nav-item text-light" href="#">
+        <a class="navbar-brand b-item text-light" href="#">
             {% if artWork is defined %}
                 {{ artWork.date|date('Y') }} | ¨{{ artWork.name }}¨ de {{ artWork.artist.name }}
             {% else %}
@@ -56,38 +56,45 @@
                 {% endfor %}
             {% endif %}
             {% if haveFavorite == 0 %}
-                <p>Vous n'avez pas de favourite :D</p>
+                <p>Vous n'avez pas de favourite</p>
             {% endif %}
         </div>
+    </div>
+    <div class=" align-self-center">
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            <a href="{{ path('fos_user_security_logout') }}" class="nav-link navbar-brand text-light">
+                {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+            </a>
+        {% else %}
+            <a href="{{ path('fos_user_security_login') }}"
+               class="nav-link navbar-brand text-light">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+        {% endif %}
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <div class="dropdown-divider"></div>
-        <ul class="navbar-nav ml-auto">
-            <li id="drop_two" class="nav-item navbar-brand">
+    <div class="collapse navbar-collapse pb-2" id="navbarSupportedContent">
 
-            <li class="nav-item align-self-center d-lg-none mx-auto">
-                <a class="nav-link" href="#">Fonction secrète</a>
-            </li>
+        <div class="col-12 px-0">
+            <ul class="navbar-nav ml-auto">
+                <li id="drop_two" class="nav-item navbar-brand">
 
-            <li class="nav-item align-self-center mx-auto">
-                <a class="nav-link " href="/">Accueil</a>
-            </li>
-            <li class="nav-item align-self-center mx-auto">
-                {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <a href="{{ path('fos_user_security_logout') }}" class="nav-link">
-                        {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
-                    </a>
-                {% else %}
-                    <a href="{{ path('fos_user_security_login') }}"
-                       class="nav-link">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
-                {% endif %}
-            </li>
-        </ul>
+                <li class="nav-item align-self-center d-lg-none text-center w-100 px-0">
+                    <a class="nav-link" href="#">Fonction secrète</a>
+                </li>
+                <li class="nav-item align-self-center text-center w-100">
+                    <a class="nav-link " href="{{ path('map') }}">Map</a>
+                </li>
+                <li class="nav-item align-self-center text-center w-100">
+                    <a class="nav-link " href="{{ path('concept') }}">concept</a>
+                </li>
+                <li class="nav-item align-self-center text-center w-100">
+                    <a class="nav-link " href="/">Accueil</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
 {% block free %}
