@@ -75,7 +75,7 @@ $('#collapseShow').click(function(){
 
 });
 $('#pills-tab').click(function(){
-    $('#pills-tabContent').show();
+    $('#pills-tabContent').toggle();
 
 });
 
