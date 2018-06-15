@@ -12,24 +12,28 @@
                                aria-controls="pills-home" aria-selected="false"><i
                                         class="fas fa-clone"></i> {{ artWork.type.name }}</a>
                         </li>
+                        {% if artWork.paint != null %}
                         <li class="nav-item">
                             <a class="nav-link" id="paint" data-toggle="pill" href="#pills-contact"
                                role="tab"
                                aria-controls="pills-contact" aria-selected="false"><i
                                         class="fas fa-leaf"></i> {{ artWork.paint.name }}</a>
                         </li>
+                        {% endif %}
                         <li class="nav-item">
                             <a class="nav-link" id="tech" data-toggle="pill" href="#pills-profile"
                                role="tab"
                                aria-controls="pills-profile" aria-selected="false"><i
                                         class="fas fa-pencil-alt"></i> {{ artWork.tech.name }}</a>
                         </li>
+                        {% if artWork.materials != null %}
                         <li class="nav-item">
                             <a class="nav-link" id="materials" data-toggle="pill" href="#pills-contact"
                                role="tab"
                                aria-controls="pills-contact" aria-selected="false"><i
                                         class="fas fa-leaf"></i> {{ artWork.materials.name }}</a>
                         </li>
+                        {% endif %}
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
@@ -45,6 +49,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% if artWork.paint != null %}
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                              aria-labelledby="paint">
                             <p>{{ artWork.paint.description }}</p>
@@ -58,6 +63,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                              aria-labelledby="tech">
                             <p>{{ artWork.tech.description }}</p>
@@ -71,6 +77,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% if artWork.materials != null %}
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                              aria-labelledby="materials">
                             <p>{{ artWork.materials.description }}</p>
@@ -84,6 +91,7 @@
                                 </div>
                             </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
