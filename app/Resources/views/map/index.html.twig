@@ -9,7 +9,7 @@
 {% endblock %}
 
 {% block page_title %}
-Map
+Map {% if room is not null %}{{ room.name }} - {{ room.theme }}{% endif %}
 {% endblock %}
 
 {% block body %}
@@ -39,6 +39,14 @@ Map
         {% if map[finder.coordX][finder.coordY].artWork is not null %}
             <a class="btn btn-primary"
                href="{{ path('artwork_show', {'id': map[finder.coordX][finder.coordY].artWork.id }) }}">Voir l'oeuvre
+            </a>
+        {% endif %}
+    </div>
+
+    <div id="btn-win">
+        {% if win > 0 %}
+            <a class="btn btn-primary"
+               href="{{ path('choose_room') }}"> Lancer une nouvelle partie
             </a>
         {% endif %}
     </div>

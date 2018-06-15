@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1 class="text-center">Choississez une salle pour lancer le jeu</h1>
+    <form action="/map" method="POST">
+        <div class="col-6 offset-3">
+            <select name="room" id="room" class="form-control">
+                {% for room in rooms %}
+                    <option value="{{ room.id }}">{{ room.name }} - {{ room.theme }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="text-center mt-2">
+            <button class="btn btn-warning" type="submit">Valider</button>
+        </div>
+    </form>
+{% endblock %}

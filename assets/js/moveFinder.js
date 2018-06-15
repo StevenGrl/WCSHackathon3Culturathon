@@ -12,6 +12,8 @@ function ajaxDirection(move) {
         $('#map').replaceWith(mapResult);
         const buttonOeuvre = $(result).find('#btn-oeuvre');
         $('#btn-oeuvre').replaceWith(buttonOeuvre);
+        const buttonWin = $(result).find('#btn-win');
+        $('#btn-win').replaceWith(buttonWin);
     });
 }
 
