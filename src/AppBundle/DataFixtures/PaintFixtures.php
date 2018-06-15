@@ -18,12 +18,12 @@ class PaintFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $acrylique = new Paint();
-        $eau = new Paint();
+        $huile = new Paint();
         $aquarelle = new Paint();
 
-        $acrylique->setName('Acrylique');
-        $eau->setName('Eau');
-        $aquarelle->setName('Aquarelle');
+        $acrylique->setName('acrylique');
+        $huile->setName('huile');
+        $aquarelle->setName('aquarelle');
 
         $acrylique->setDescription('La principale qualité de la peinture acrylique est sa docilité : dilution à l\'eau (sans excès), miscibilité, mélanges faciles à préparer, facilité d\'application, polyvalence de supports, faible odeur. Elle est très solide et indélébile.
 
@@ -38,12 +38,12 @@ Depuis la fin du xviiie siècle, on différencie l\'aquarelle, transparente, de 
 Le faible encombrement du matériel et la possibilité d\'une exécution technique rapide la font souvent servir à la réalisation de pochades et d\'études, et à la peinture en extérieur.');
         $manager->persist($acrylique);
         $manager->persist($aquarelle);
-        $manager->persist($eau);
+        $manager->persist($huile);
 
         $manager->flush();
 
         $this->addReference('acrylique', $acrylique);
-        $this->addReference('eau', $eau);
+        $this->addReference('huile', $huile);
         $this->addReference('aquarelle', $aquarelle);
     }
 }
