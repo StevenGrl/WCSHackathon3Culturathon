@@ -21,9 +21,10 @@ class PaintFixtures extends Fixture
         $eau = new Paint();
         $aquarelle = new Paint();
 
-        $acrylique->setName('acrylique');
-        $eau->setName('eau');
-        $aquarelle->setName('aquarelle');
+        $acrylique->setName('Acrylique');
+        $eau->setName('Eau');
+        $aquarelle->setName('Aquarelle');
+
         $acrylique->setDescription('La principale qualité de la peinture acrylique est sa docilité : dilution à l\'eau (sans excès), miscibilité, mélanges faciles à préparer, facilité d\'application, polyvalence de supports, faible odeur. Elle est très solide et indélébile.
 
 Elle a la particularité de sécher très vite, en quelques minutes. C\'est un avantage lorsqu\'il s\'agit de travailler plus rapidement les différentes couches, mais peut constituer un inconvénient en empêchant les retouches. Aujourd\'hui, on peut trouver des acryliques à séchage ralenti (d\'une heure à plusieurs jours).');
