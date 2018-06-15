@@ -32,7 +32,7 @@ class MapManager
         }
     }
 
-    public function getRandomIsland(): Tile
+    public function getRandomArtwork(): Tile
     {
         $tiles = $this->tileRepository->findByType('oeuvre');
         $rand = array_rand($tiles, 1);
@@ -51,10 +51,8 @@ class MapManager
     public function checkTreasure(Finder $finder): bool
     {
         $treasureArtwork = $this->tileRepository->findOneByHasTreasure(1);
-        if ($treasureArtwork) {
-            if ($treasureArtwork->getCoordX() === $finder->getCoordX() and $treasureArtwork->getCoordY() === $finder->getCoordY()) {
-                return true;
-            }
+        if ($treasureArtwork->getCoordX() === $finder->getCoordX() and $treasureArtwork->getCoordY() === $finder->getCoordY()) {
+            return true;
         } else {
             return false;
         }

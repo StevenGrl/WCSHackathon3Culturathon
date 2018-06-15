@@ -37,7 +37,6 @@ class MapController extends Controller
 
         $question = $artWorkRepo->findOneByTile($tileTreasure)->getEnigma();
 
-
         $form = $this->createForm('AppBundle\Form\AnswerType');
         $form->handleRequest($request);
 
@@ -76,8 +75,8 @@ class MapController extends Controller
 
         $mapManager = new MapManager($tileManager);
         $mapManager->resetTreasure();
-        $islandTreasure = $mapManager->getRandomIsland();
-        $tile = $tileManager->findOneById($islandTreasure->getId())->setHasTreasure(1);
+        $artworkRandom = $mapManager->getRandomArtwork();
+        $tile = $tileManager->findOneById($artworkRandom->getId())->setHasTreasure(1);
         $em->flush();
 
         return $this->redirectToRoute('map');

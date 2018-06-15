@@ -36,7 +36,7 @@ class VisiteController extends Controller
     }
 
     /**
-     * @Route("/start", name="start")
+     * @Route("/startVisite", name="start_visite")
      */
     public function start()
     {
