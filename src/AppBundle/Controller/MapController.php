@@ -42,7 +42,7 @@ class MapController extends Controller
 
         $artWorkRepo = $em->getRepository(ArtWork::class);
 
-        $question = $artWorkRepo->findOneByTile($tileTreasure)->getEnigma();
+        $question = $artWorkRepo->findOneById($tileTreasure->getArtwork()->getId())->getEnigma();
 
         $form = $this->createForm('AppBundle\Form\AnswerType');
         $form->handleRequest($request);

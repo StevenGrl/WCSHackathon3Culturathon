@@ -1,11 +1,13 @@
 $(document).on('click', '.move', function (e) {
     e.preventDefault();
     let move = $(this).attr('data-move');
+    console.log(move)
     ajaxDirection(move);
 });
 
 function ajaxDirection(move) {
     $.get('/finder/direction/' + move).done(function (result) {
+      console.log(result)
         const alertResult = $(result).find('#messageFlash');
         $('#messageFlash').replaceWith(alertResult);
         const mapResult = $(result).find('#map');
@@ -20,6 +22,7 @@ function ajaxDirection(move) {
 }
 
 document.addEventListener('keydown', function (e) {
+  console.log('coucou')
     let direction = null;
     switch (e.keyCode) {
         case 37:

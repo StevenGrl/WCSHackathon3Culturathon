@@ -37,6 +37,15 @@ class Artist
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\ArtWork", mappedBy="Artist")
      */
     private $artWorks;
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+      return $this->name;
+    }
+
     /**
      * Get id
      *

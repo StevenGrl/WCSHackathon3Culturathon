@@ -2,7 +2,7 @@
 
 {% block body %}
     <h1 class="text-center">Choississez une salle pour lancer le jeu</h1>
-    <form action="/map" method="POST">
+    <form action="/start" method="POST">
         <div class="col-6 offset-3">
             <select name="room" id="room" class="form-control">
                 {% for room in rooms %}

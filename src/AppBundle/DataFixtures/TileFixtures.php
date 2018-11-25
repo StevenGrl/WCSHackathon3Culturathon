@@ -13,8 +13,9 @@ use AppBundle\Entity\Finder;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Bundle\FixturesBundle\ORMFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class TileFixtures extends Fixture
+class TileFixtures extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager)
     {
@@ -40,7 +41,7 @@ class TileFixtures extends Fixture
                 $tile->setHasTreasure(false);
                 $manager->persist($tile);
                 if($type === 'oeuvre'){
-                    $this->addReference('tile' . $i, $tile);
+                    $tile->setArtWork($this->getReference('tile' .$i));
                     $i++;
                 }
             }
@@ -54,5 +55,12 @@ class TileFixtures extends Fixture
         $manager->persist($finder);
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+            ArtWorkFixtures::class,
+        ];
     }
 }
